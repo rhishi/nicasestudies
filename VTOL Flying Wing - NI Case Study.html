@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://sine.ni.com/cs/app/doc/p/id/cs-16701# -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./VTOL Flying Wing - NI Case Study_files/utils.js"></script><script src="./VTOL Flying Wing - NI Case Study_files/up-data.js"></script>
+
+        <title>VTOL Flying Wing - NI Case Study</title>
+        
+        <meta name="MSSmartTagsPreventParsing" content="true">
+        <meta name="Section" content="Solutions">
+        <meta name="ContentClass" content="Technical">
+        <meta name="ContentType" content="CaseStudy">
+        <meta name="Language" scheme="rfc3066" content="en">
+        <meta name="Date" scheme="iso8601" content="2015-05-26T13:00:00">
+        <meta name="UpdateDate" scheme="iso8601" content="2015-05-28T13:12:35">
+        <meta name="ShortTitle" content="Developing a New Breed of Industrial Inspection Drone Using the NI RIO Platform">
+        <meta name="description" content="Creating tight-deadline simulation and flight control for a breakthrough remotely piloted aircraft system (RPAS) design using hardware in-the-loop testing that can operate in a real-time environment and handle significant data communications including telemetry data logging and processing. ">
+        <!-- TODO: strip HTML -->
+        <meta name="productCategories" content="4018,4,18414,28">
+        <meta name="nigen1" content="Aerospace/Avionics">
+        <!-- Industry-->
+        <meta name="nigen2" content="Signal Acquisition &amp; Generation">
+        <!-- Application Area -->
+        <meta name="nigen12" content="GB">
+        <!-- Country -->
+        <meta name="vcmGuid" content="fa5e130d5ca7d410VgnVCM100000980aa482RCRD">
+        <meta name="DocStatus" content="Branch">
+
+        <!-- WRAPPER INVISIBLE HEADER START-->
+        
+    <!-- Adobe Dynamic Tag Manager Loader Code-->
+        <script src="./VTOL Flying Wing - NI Case Study_files/satelliteLib-1401ce0fc9dae9e8602fcc34896d0a249c42abb2.js"></script><script src="./VTOL Flying Wing - NI Case Study_files/mbox-contents-9016c8547b1ac2c743f4fef6982b2f26bb9f06dd.js"></script><style>.mboxDefault { visibility:hidden; }</style><script src="./VTOL Flying Wing - NI Case Study_files/target.js"></script><script src="./VTOL Flying Wing - NI Case Study_files/standard"></script><style type="text/css">#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at16pc,#at16pi,#at16pib,#at_complete,#at_email,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}.at15a{border:0;height:0;margin:0;padding:0;width:230px}.atnt{text-align:center!important;padding:6px 0 0!important;height:24px!important}.atnt a{text-decoration:none;color:#36b}.atnt a:hover{text-decoration:underline}#at15s,#at16nms,#at16p,#at16p form input,#at16p label,#at16p textarea,#at16recap,#at16sas,#at_msg,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper,#at16ps .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon,#at16ps .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_16x16_white_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.addthis_32x32_white_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.addthis_24x24_white_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.addthis_20x20_white_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon,.sortable-list-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s.atiemode2{width:252px!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15s.atiemode2 a#at15sptx,.at15sie6 a#at15sptx{right:8px}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at16nms,#at16sas{padding:4px 5px}#at16nms{display:none}#at16sas{clear:left;padding-top:1pc;padding-bottom:1pc}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.atiemode2{width:114px!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at16ps .at_item:focus,#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}* html #at_hover .at_item{border:1px solid #fff}* html #at_hover .at_item.athov{border:1px solid #e5e5e5!important;margin:1px!important}#at_email15{padding-top:5px}.at15e_row{height:28px}.at15e_row label,.at15e_row span{padding-left:10px!important;display:block!important;width:60px!important;float:left!important}.at15e_row input,.at15e_row textarea{display:block!important;width:150px!important;float:left!important;background:#fff!important;border:1px solid #ccc!important;color:#333!important;font-size:11px!important;font-weight:400!important;padding:0!important}#at_email input,#at_email label,#at_email textarea{font-size:11px!important}#at_email #at16meo{margin:15px 0 0 2px}#at16meo span{float:left;margin-right:5px;padding-top:4px}#at16meo a{float:left;margin:0}#at_sending{top:130px;left:110px;position:absolute;text-align:center}#at_sending img{padding:10px}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:140px}.addthis_toolbox.addthis_close_style .addthis_button_google_plusone{width:65px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_facebook_like{width:85px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_tweet{width:90px;overflow:hidden}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px;*height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc;*height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter:alpha(opacity=100)}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs,.addthis_20x20_style .dummy .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs,.addthis_32x32_style .dummy .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{background-position:0 0}.at16nc,.at300bs{overflow:hidden;display:block;height:1pc;width:1pc;line-height:1pc!important}.at16t{padding-left:20px!important;width:auto;cursor:pointer;text-align:left;overflow:visible!important}#at_feed{display:none;padding:10px;height:300px}#at_feed span{margin-bottom:10px;font-size:9pt}#at_feed div{width:102px!important;height:26px!important;line-height:26px!important;float:left!important;margin-right:68px}#at_feed div.at_litem{margin-right:0}#at_feed a{margin:10px 0;height:17px;line-height:17px}#at_feed.atused .fbtn{background:url(//s7.addthis.com/static/r05/feed00.gif) no-repeat;float:left;width:102px;cursor:pointer;text-indent:-9000px}#at_feed .fbtn.bloglines{background-position:0 0!important;width:94px;height:20px!important;line-height:20px!important;margin-top:8px!important}#at_feed .fbtn.yahoo{background-position:0 -20px!important}#at_feed .fbtn.newsgator,.fbtn.newsgator-on{background-position:0 -37px!important}#at_feed .fbtn.technorati{background-position:0 -71px!important}#at_feed .fbtn.netvibes{background-position:0 -88px!important}#at_feed .fbtn.pageflakes{background-position:0 -141px!important}#at_feed .fbtn.feedreader{background-position:0 -172px!important}#at_feed .fbtn.newsisfree{background-position:0 -207px!important}#at_feed .fbtn.google{background-position:0 -54px!important;width:78pt}#at_feed .fbtn.winlive{background-position:0 -105px!important;width:75pt;height:19px!important;line-height:19px;margin-top:9px!important}#at_feed .fbtn.mymsn{background-position:0 -158px;width:71px;height:14px!important;line-height:14px!important;margin-top:9pt!important}#at_feed .fbtn.aol{background-position:0 -189px;width:92px;height:18px!important;line-height:18px!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at16clb{font-size:16pt;font-family:verdana bold,verdana,arial,sans-serif}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16pm{background:#fff;width:298px;height:380px;text-align:left;border-right:1px solid #ccc;position:static}#at16pcc,#at16pccImg{position:fixed;top:0;left:0;width:100%;margin:0 auto;font-size:10px!important;color:#4c4c4c;padding:0;z-index:10000001;overflow:visible}#at16pccImg{height:100%}* html #at16pcc{position:absolute}#at16abifc{overflow:hidden;margin:0;top:10px;left:10px;height:355px;width:492px;position:absolute;border:0}#at16abifc iframe{border:0;position:absolute;height:380px;width:516px;top:-10px;left:-10px}* html div#at16abifc.atiemode2{height:374px;width:482px}* html #at16abifc iframe{height:23pc;left:-10px;top:-10px;overflow:hidden}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001}#at16p,#atie6cmifh,#atie6ifh{position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#atie6ifh{width:322px;height:381px;margin-left:-165px}#atie6cmifh,#atie6ifh{padding:0;z-index:100001}#atie6cmifh{width:15pc;height:225px;margin:0}#at_share{margin:0;padding:0}#at16ps{overflow-y:scroll;height:19pc;padding:5px}a#at16pit{position:absolute;top:37px;right:10px;display:block;background:url(data:image/gif;base64,R0lGODlhEAAUAKIFAKqqquHh4cLCwszMzP///////wAAAAAAACH5BAEAAAUALAAAAAAQABQAAAMtOLqsAqWQSSsN0OoLthfeNoTaSFbmOaUqe7okHMoeLaqUXeITiGM/SGM4eEQSADs=) no-repeat;width:1pc;height:20px;line-height:19px;margin-right:-17px;text-align:center;overflow:hidden;color:#36b}#at16pi{background:#e5e5e5;text-align:left;border:1px solid #ccc;border-bottom:0}#at16pi a{text-decoration:none;color:#36b}#at16p #at16abc{margin-left:2px!important}#at16pi a:hover{text-decoration:underline}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at16pc form{margin:0}#at16pc form label{display:block;font-size:11px;font-weight:700;padding-bottom:4px;float:none;text-align:left}#at16pc form label span{font-weight:400;color:#4c4c4c;display:inline}#at_email form .abif{width:17pc!important}#at_email textarea{height:55px!important;word-wrap:break-word}* html #at_email textarea,:first-child+html #at_email textarea{height:42px!important}#at_email label{width:220px}#at_email input,#at_email textarea{background:#fff;border:1px solid #bbb;width:17pc!important;margin:0;margin-bottom:8px;font-weight:400;padding:3px!important;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:11px;line-height:1.4em;color:#333}#at_email form .atfxmode2{width:279px!important}#at16pc form .at_ent{color:#333!important}#at16pc textarea{height:3pc}#at16pc form input:focus,#at16pc textarea:focus{background:ivory;color:#333}#at16p .atbtn,#at16recap .atbtn{background:#fff;border:1px solid #b5b5b5;width:60px!important;padding:2px 4px;margin:0;margin-right:2px!important;font-size:11px!important;font-weight:700;color:#333;cursor:pointer}#at16p .atbtn:focus,#at16p .atbtn:hover,#at16recap .atbtn:focus,#at16recap .atbtn:hover{border-color:#444;color:#06c}#at16p .atrse,#at16recap .atrse{font-weight:400!important;color:#666;margin-left:2px!important}#atsb .atbtn{width:78px!important;margin:0!important}#at_email #ateml{text-align:right;font-size:10px;color:#999}#at16pc{height:343px!important;font-size:11px;text-align:left;color:#4c4c4c}#at_email{padding:5px 10px}#at16pc .tmsg{padding:4px 2px;text-align:right}#at16psf{position:relative;background:#f2f2f2 url(data:image/gif;base64,R0lGODlhGQEVAMQYAGZmZuDg4Ozs7MjIyMzMzPj4+LOzs3BwcMbGxsvLy5+fn/X19djY2IODg+bm5paWlnl5eeLi4oyMjKmpqdXV1dvb28/Pz////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABgALAAAAAAZARUAAAX/ICaOGJFYaKqubOu+cCzPdG3feK7vPJwQpOBoEChcjsikcslsOp/QqHRKrVqv2Kx2Gy0EBkKRgMEtm8/otHrNTjMEQYGjTa/b7/h82gEfVfSAgYKDhGcVQ0sLBhAAEAYLhZGSk5RqYBgBSgsNAA0GnA2QlaOkpaZHASVGSQYACEgIABOntLW2eAUmSxASShIHt8HCw1snSwAGSq3EzM3OSyhLBw9KD8DP2Nm30UoKrrAACtrj5KMWCYmcCgbeAAcR5fHygT+rSQvtAA8A7vDz/wDV5MIUJVa/gAgTZkmFYYAUg70USpz45BKGPwUPiKPIseOhEXI6ihzphE8cMiRTMI58E6ZhEZUwEXqx2LIEAwsUKujcybOnz59AgwodSrSo0aNIkypdyrSpU58ofoQJAQA7) no-repeat center center;border-bottom:1px solid #ccc;height:20px;padding:4px 10px;text-align:center}* html #at16psf input,:first-child+html #at16psf input{padding:0}#at16psf input,#at16psf input:focus{background:#fff;border:none;width:220px;margin:2px 0 0;color:#666;outline-style:none;outline-width:0;padding:2px 0 0;line-height:9pt;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt}#at16pcc .at_error,#at16recap .at_error{background:#f26d7d;border-bottom:1px solid #df5666;padding:5px 10px;color:#fff}#at16pcc #at_success{background:#d0fbda;border-bottom:1px solid #a8e7b7;padding:5px 10px;color:#4c4c4c}#at_complete{font-size:13pt;color:#47731d;text-align:center;padding-top:130px;height:13pc!important;width:472px}#at_s_msg{margin-bottom:10px}.atabout{left:55px}.ac-about{right:20px}.at_baa{display:block;overflow:hidden;outline:0}#at15s #at16pf a{top:1px}#at16pc form #at_send{width:5pc!important}#at16pp{color:#4c4c4c;position:absolute;top:9pt;right:9pt;font-size:11px}#at16pp label{font-size:11px!important}#at16ppc{padding:10px;width:179px}#at16pph{padding:5px 0 10px}#at16pph select{margin:5px 0 8px}#at16pp .atinp{width:156px}#at16ppb{background:#fff;border:1px solid #ccc;height:274px}#at16ep{height:1pc;padding:8px}#at16ep a{display:block;height:1pc;line-height:1pc;padding-left:22px;margin-bottom:8px;font-size:9pt}#at16ep a.at_gmail{background:url(data:image/gif;base64,R0lGODlhEAAQALMPAPKqo95TU+NkY/TCwP74+PbX1/zo59wtJ/nx7uZ7fvnRzfCTgvq2td9DQf///////yH5BAEAAA8ALAAAAAAQABAAAARi8MlJq700hMS6/4vWNIdQOERKOMgyvqSgOLRjJAe8CUcw0ApeYyF4DQpCwCDQGyCKo59BGDtNjbRBIvazQRtSxgCwGDAMrO/AcK7ZztcRoO1+B43oOs0Qb8w/gAxFGISFFREAOw==) no-repeat left}#at16ep a.at_hotmail{background:url(data:image/gif;base64,R0lGODlhEAAQAMQfAP7XFG7B4/zjl/JZIAm7TK7V7v3FY/aLRGDNhOqmkA2ql/2YJvfr2Pn7++9vWtXe6/jQvOfw9funZg2EzEWv3zil0heg0zDCbESHx9PpxY6TvJ3QpPJtQf7+/v///////yH5BAEAAB8ALAAAAAAQABAAAAWO4CeOpNhAUFeuzDEMiRepK/S+XDBVjzd6kAWHc3tMjpVZhyE8cByvDsViOQYehsPCSeR8IpQpFZMwGCQHl/dToAQoionGLEHDRJ5CoHJRkM92ED8FCgQEGHNoDgsCJB4XhgpzZwsAjSQZFxcIGgCengwlHRsIpQKfAg0rHQiGEacGqisfDZsdtzSzHz4rIQA7) no-repeat left}#at16ep a.at_yahoo{background:url(data:image/gif;base64,R0lGODlhEAAQAKIHAPylpevx8bsICNJfX/jQ0Kahof8AAP///yH5BAEAAAcALAAAAAAQABAAAANJeLrc/jAuAmolcQhjhBiBBRDDAChAVxzE5g3csKRGQQpFqDL0fsCCQCOFUwR8vI7wECgtjQDg6CfA8DxYmWbVCHi/TK9kTC4zEgA7) no-repeat left}#at16ppf p#atsb{padding-top:20px;font-size:10px}#at16abr{margin-top:10px}#at16abr input{padding:0;margin:0;margin-right:5px}#at16ppso{display:none;text-align:right;margin-top:2px}#at16ppa{background:#fff;border:1px solid #ccc;height:228px;width:178px;overflow:auto}#at16ppa a{display:block;white-space:nowrap;padding:4px 8px;font-size:9pt!important}#at16eatdr{position:absolute;background:#fff;border-top:0;max-height:110px;overflow:auto;z-index:500;top:129px;left:21px;width:277px}* html #at_email #at16eatdr,:first-child+html #at_email #at16eatdr{top:115px!important;width:17pc!important}#at16eatdr a{display:block;overflow:hidden;border-bottom:1px dotted #eee;padding:4px 8px}#at16eatdr a.hover,#at16eatdr a:hover{background:#e0eefa;text-decoration:none;color:#333}#at_pspromo{height:130px;padding-top:10px}#at15psp,#at_pspromo{width:205px;padding-left:5px}#at_testpromo{font-size:9pt;width:220px;display:none}.atm-i #at_pspromo{height:150px}.atm-i #at_pspromo,.atm-i #at_testpromo{width:140px}#at_testpromo input{width:200px}#at_promo .at-promo-content,#at_testpromo .at-promo-content{margin-top:9pt}#at_promo .at-promo-btn,#at_testpromo .at-promo-btn{padding-top:10px}#at_promo h4,#at_testpromo h4{font-family:arial,helvetica,tahoma,verdana,sans-serif;background:0;font-size:14px;font-weight:700;margin:0 0 4px;padding:0;line-height:18px;height:36px}.atm-i #at_promo h4,.atm-i #at_testpromo h4{height:66px}#at_testpromo h4{font-size:13.5px}#at_promo h4 sup{font-size:11px;color:#ee6a44}#at_promo span{display:block}#_atssh{width:1px!important;height:1px!important;border:0!important}.at-promo-single{padding:10px;padding-top:2px;line-height:1.5em}.at-promo-single img{padding:3px}.at-promo-content img{margin-right:5px;margin-bottom:20px;float:left}.addthis_textshare{display:block;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABKCAYAAAAYJRJMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABmNJREFUeNrsmk9oI3UUx99vZjL5n7TbukLbxYve1INa8KAi6F48ubAHV2+KWCoqyF4WpZZ6cuthq1gKe1oU9+CCoLjg+uciCEWQPSjuReyy7Vq7W7LNJM0kM5nxvV9+U5JNk/xCm8wmMw8ek06TXyafee/93u83XwY1Y+jKwsLCiUwm87Gqqg8oigJBMsdxoFqtXs/n86fn5ua+plPoLhNw1NnZ2ZPZbPai67pgWRbQMUjGGINIJMKPOzs7p5aXly/h6apGkYMexZOLSA/K5TKYpgm2bQcKkKZpEIvFIBqNUnAs4qlv0U0CpKInt7a2pjC1+JuDBoeMsobcMAxKtSliQqcJEHmSIofCK8hGgMhEeSFABS+CopVKJfCAPBOAosRG82awEFATIKrNTPOKuAyg54/p8O6Lz0AylgKnVAEo4WxXruKIdW9SGBSNPCz9+jv8uFUdZEAchgcIZAC98+wjMK644Nz8B9x8GcCogFvarQHC6g9ModEhHk/CWw/eD5fX1wYZEDQAkinSCasCzvYdcAwsZgWLR6H78ttgRxDOd1+AbuTAxZnQrZiQsC0+5tAAkomgqmGCi/0C5EuYk5heWMKSj06DFU9B8fKXwBAgRHRe2qr4JTTm0ADyprj2gMocgJPIQnUkhhmlAMPBGEaLmRkDB18r2LJHSwb/kkEF1NBAdgPIMTFqbBOiL7wCypPP1apYMg0RPIzNvs+hFK6uAlz8hC9kZMYcKkBAk1KEpjwTtGKeF3oWT2ApUkEvl8Ct2qBZou5gLQoeIPzRDAty5colqHz/FQeTPHMObKxBhU8/AH17k69pIJ3ka+GhAoTrj84ppqje3gC6eD8WZBfP8887uIajFXEGZzXLkRpzYADRfkjHANIwv1yH9gZ49FDfY63+DI4eraVWIopwYgAp/NtmUmMODCAZy+EqfyyVxS66KKhWofLN55yXnsK0ymI9SscgMn4Ecuvrw7EN0s2b3/tpFT48/hSMJBKw1ypo0VrhjmtYn3SEpUJ+YxPOXPhhODbS0DPox9D/CJepDfYw+g0l5NDeQkAhoMMBRCV3LcSxZ2uCCQfkikXEEnopZMMZLAkmLrXGfE8anR5lUPNyH/rRgML5E/08+m/oW+iGJsBQ53dL/OM6ekr0SL3YpGYicl9Cf6zLz/6LfgH9NjRu9B54C0hwKAgwtwQT27tYiqARET1j6Gl0vUeAFDE2PVZ5Df0Jyc/dRD8nLr7spcAhAqLNKwN9W3zHHfoeVndH6aIT4sJjPYwgSum4uBGUyrPo0xJwzorovi3utNWDCDJF5OwKYA6jTS5W22tl4uK9Z2W9agEUcQOOoE+gT6K/2QYSwfkI/W/x+pb4AdVDTjNHjGl7Y5OxfosUxM2IiDpHETTVBlI9nBvo/6Hv0N3F6+7LVkHfG0W3dkesuoJIM+cG+mdikmgFZ7PfcPgN9Uvm0iKSJkQkTYqaUw8n3284vgJqAYkAjYsamBNR5BucrveDepFuyMhLNxDF0RCpnxdTrm9wfI+gfSIpJloAJnqdkp9w7hlAdZAUkV7etOv4CQfqGkF+cSsrKyfS6TQXcQZNCkOBQiJOwzBOz8zMNIs45+fnT46OjnIRJ0nwgijipGd6dMzlcqeQR6OIs1gsLpZKJf48nVQZw/BMq6v1j6pyAaeu6/S4qlnEub29PeVpo4MGxzNPbIGAmkWcGEEQNPF4y0VZ7YFno4iTtNEhoAZAjSLOEFAToEYRJxXoToCePurCG8cfh2QsCc4uNsDm/iLO3YIB569eg192tEEG1CjipAjq1Pu8Pv0QjDEHnI32Is5YPAmvTqTgymZuYHuiprUYRVAnQHHLlBdx4oxAYwYKkE0iTlVOxGm7MFyAZFLMIRGnJifipFSjMYcGkIym2SFlvSYr4hxcQPvuB8kA4utqJifipFo0qELyfQFJaZoVrSsR51DppGV+jOP1SZIizqECFIo4OwCSsVDE2cFCEWdo9RaKOGUsBBQCOhxAoYiz0dYgFHG2tFDE2cZCEWerdTiEIs6OgEIRp0QENYs468I+FHHeJeIEIV7wY3lzYBGn+EE9N9Wn2cK7W5Y4ErRrAtRkCzh7Urx+wfETUCtIf9UBOus3HOhRET5IurUVcfYbTtf7QT2wes00QBsRpx9w7oUIujuS9hVx+gWHX1jQpHbd2v8CDAAwldUwLVojIgAAAABJRU5ErkJggg==) no-repeat 0 0;width:44px;height:37px;line-height:28px;padding:0 0 0 28px;margin:0;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:9pt;color:#fff;cursor:pointer}.addthis_textshare:hover{background-position:0 -37px;text-decoration:none}.at_img_share{position:absolute;opacity:0;background:url(data:image/gif;base64,R0lGODlhFwAVAMQAAP7+/vLy8vv7+/X19fj4+Pz8/PHx8f39/fDw8O/v7/T09Pn5+fPz8/r6+vb29vf394CAgHZ2dm5ubklJSWRkZFtbW39/f4KCglJSUnt7e3h4eAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAXABUAAAWLICCOZGmeaAocbOu+MFvMdG3fs6DvfO//PY0QqGsYj8iMEslsLJ7QqGUarS4I2Kz2wtV6vwSIeEyGfB/odGTNbkfSaYd8Lqnb75L5fMDv+ymAfoKDghWGhH0KiouMGI6MkAoMk5SVE5eVmQwBnJ2en6ChoqMBBqanqKmqpgitrq+wsa0JtLW2t7i0IQA7) repeat-x bottom;border:1px solid #ccc;width:23px;height:21px;line-height:21px;text-indent:-9999px;padding:0;margin:0;cursor:pointer;z-index:1000}.at_img_share:hover{border-color:#8b8b8b}.at_img_share .addthis_toolbox{width:180px;margin:0 auto}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;-webkit-transition:none;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;-webkit-transition:none;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.atm-i #atic_settings{border:none!important;border-top:1px solid #d5d6d6!important;padding-top:6px!important;top:4px}.at_a11y{position:absolute!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}.at_a11y_container{margin:0;padding:0}.addthis_overlay_container{position:absolute}.addthis_overlay_toolbox{-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px;-moz-border-radius-topleft:10px;-moz-border-radius-topright:10px;border-top-left-radius:10px;border-top-right-radius:10px;padding:5px;background-color:#000;background-color:rgba(0,0,0,.6)}.linkServiceDiv{height:200px;width:25pc;border:1px solid #000;background-color:#aaa}.at_redloading{background:url(data:image/gif;base64,R0lGODlhCgAKAJEDAMzMzP9mZv8AAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAADACwAAAAACgAKAAACF5wncgaAGgJzJ647cWua4sOBFEd62VEAACH5BAUAAAMALAEAAAAIAAMAAAIKnBM2IoMDAFMQFAAh+QQFAAADACwAAAAABgAGAAACDJwHMBGofKIRItJYAAAh+QQFAAADACwAAAEAAwAIAAACChxgOBPBvpYQYxYAIfkEBQAAAwAsAAAEAAYABgAAAgoEhmPJHOGgEGwWACH5BAUAAAMALAEABwAIAAMAAAIKBIYjYhOhRHqpAAAh+QQFAAADACwEAAQABgAGAAACDJwncqi7EQYAA0p6CgAh+QQJAAADACwHAAEAAwAIAAACCpRmoxoxvQAYchQAOw==);height:1pc;width:1pc;background-repeat:no-repeat;margin:0 auto}.at-promo-single-dl-ch{width:90pt;height:37px}.at-promo-single-dl-ff{width:90pt;height:44px}.at-promo-single-dl-saf{width:90pt;height:3pc}.at-promo-single-dl-ie{width:129px;height:51px}.atPinBox{position:fixed;top:25%;left:35%;background:#fff;width:482px;margin:0 auto;overflow:auto;overflow-x:hidden;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;padding:8px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#cfcaca;z-index:10000001}.atPinHdr,.atPinWinHdr{display:block;background:#f1f1f1;border-bottom:1px solid #ccc;box-shadow:0 0 3px rgba(0,0,0,.1);-webkit-box-shadow:0 0 3px rgba(0,0,0,.1);-moz-box-shadow:0 0 3px rgba(0,0,0,.1);padding:8px 10px;font-size:1pc;line-height:1pc;color:#8c7e7e}.atPinHdr img,.atPinWinHdr img{vertical-align:bottom;margin-left:5px;cursor:pointer}.atPinHdr span{vertical-align:top}.atPinHdr{height:1pc}.atPinMn{background:#fff;padding:10px;height:296px;overflow:auto;overflow-x:hidden;text-align:center;position:relative}.atPinHdrMsg{left:20px}.atPinClose{width:9pt;text-align:right;font-weight:700;position:absolute;right:15px;cursor:pointer}.atImgSpanOuter{position:relative;overflow:hidden;height:200px;width:200px;border:1px solid #a0a0a0;float:left;display:block;margin:10px;background-color:#fff}.atImgSpanInner img{cursor:pointer}.atImgSpanSize{position:absolute;bottom:0;left:0;right:0;display:block;background:#fff;height:22px;line-height:24px;color:#000;overflow:hidden;font-size:10px;zoom:1;filter:alpha(opacity=70);opacity:.7}.atImgActBtn{display:none;width:2pc;height:2pc;position:absolute;top:75px;left:5pc;background-color:#fff}.atPinWin{font-family:arial,helvetica,tahoma,verdana,sans-serif;text-align:center}.atPinWinHdr{display:block;font-size:20px;height:20px;width:100%;position:fixed;z-index:1}.atPinWinMn{text-align:center;padding:40px 0 0;display:inline-block}.atImgIco,.atImgMsg{float:left}.atImgIco{margin-right:5px}.atNoImg{display:block;margin-top:40px;font-size:1pc;line-height:1pc;color:#8c7e7e}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}.at3PinWinMn{text-align:center;padding:20px 0 0 20px;overflow:auto;height:437px}.at3ImgSpanOuter{position:relative;width:185px;height:185px;border:1px solid #dedede;margin:0 10px 10px 0;overflow:hidden;float:left}.at3ImgSpanOuter:hover{border-color:#3dadfc;box-shadow:0 0 3px #3dadfc;cursor:pointer}.at3ImgSpanOuter .atImgLB{display:block;position:absolute;top:0;bottom:0;left:0;right:0;z-index:1;background-color:rgba(0,0,0,.8);background-repeat:no-repeat;background-position:center center}#at3lb{position:fixed;top:0;right:0;left:0;bottom:0;z-index:16777270;display:none}.at3lblight{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpizCuu/sRABGBiIBKMKqSOQoAAAwC8KgJipENhxwAAAABJRU5ErkJggg==);background:hsla(217,6%,46%,.65)}.at3lbdark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBg2M9ABGBiIBKMKqSOQoAAAwBAlwDTJEe1aAAAAABJRU5ErkJggg==);background:rgba(0,0,0,.5)}.at3lbnone{background:hsla(0,0%,100%,0)}#at3win{position:fixed;_position:absolute;top:15%;left:50%;margin-left:-20pc;background:#fff;border:1px solid #d2d2d1;width:40pc;box-shadow:0 0 8px 4px rgba(0,0,0,.25);font-family:helvetica neue,helvetica,arial,sans-serif;z-index:16777271;display:none;overflow:hidden}#at3win #at3winheader{position:relative;border-bottom:1px solid #d2d2d1;background:#f1f1f1;height:49px;cursor:default}#at3win #at3winheader p{position:absolute;top:1pc;left:75pt;width:475px;padding:0;margin:0;font-size:14px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#at3win #at3winheader h3{height:49px;text-align:left;line-height:49px;margin:0 50px 0 22px;border:0;padding:0 20px;font-size:1pc;font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:700;text-shadow:0 1px #fff;color:#333;direction:ltr}#at3win #at3winheader h3.logoaddthis{padding-left:22px}#at3win #at3winheader .at3winheadersvc{display:inline-block;position:absolute;top:15px;left:20px;cursor:default!important;opacity:1!important}#at3win #at3winheader .at3winheadersvc .at-icon,#at3win #at3winheader .at3winheadersvc .at-icon-wrapper{display:block}#at3win #at3winheader #at3winheaderclose{display:block;position:absolute;top:0;right:0;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcFJpZ2h0czpNYXJrZWQ9IkZhbHNlIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQwNzc2QTQ5Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQwNzc2QTQ4Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzMgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InV1aWQ6OEE1QUU0REMzMEU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6M0M5RkJGRTEyQUU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz78RHhFAAAApUlEQVR42rxTiQnAIAxU6QAdxRW6iZ1EnKRu4gqO0g1sCilEvT7Q0kBQ9O4wl6hLKepNGPUyhmMTQhhpSZTZez8jMGEWWizlRJi1fUHiS8dARHaMSaiELPaViCB3WC1NBMB4CMozWaJuuwBE1BkZdoEB8Qn5kzaaC7fbgN0xN+TYlNOJmCvyXjPwpBKRL7BnhgERiwQmHhDothDJjMVz8Ptv3AQYAJWjVVdnlDZCAAAAAElFTkSuQmCC);background-repeat:no-repeat;background-position:center center;border-left:1px solid #d2d2d1;width:49px;height:49px;line-height:49px;overflow:hidden;text-indent:-9999px;text-shadow:none;cursor:pointer}#at3win #at3winheader #at3winheaderclose:hover{background-color:#dedede}#at3win #at3wincontent{height:440px;position:relative}#at3wincopy,#at3winemail,#at3winshare{height:440px}#ate-promo .addthis_button_twitter .aticon-twitter{background-position:0 -4pc!important}#at3wincontent{-o-box-sizing:content-box;box-sizing:content-box}#at3win #at3wincontent.at3nowin{position:relative;height:25pc;padding:20px;overflow:auto}#at3winfooter{position:relative;background:#fff;-o-box-sizing:content-box;box-sizing:content-box;border-top:1px solid #d2d2d1;height:11px;_height:20px;line-height:11px;padding:5px 20px;font-size:11px;color:#666}#at3winfooter a{margin-right:10px;text-decoration:none;color:#666;float:left}#at3winfooter a:hover{text-decoration:none;color:#000}#at3logo{background:url(//s7.addthis.com/static/t00/at3logo-sm.gif) no-repeat left center!important;padding-left:10px}#at3privacy{position:absolute;top:5px;right:10px;background:url(//s7.addthis.com/static/t00/at3-privacy.gif) no-repeat right center!important;padding-right:14px}#at3winfilter{background:#f1f1f1;border-top:1px solid #fff;border-bottom:1px solid #d2d2d1;padding:13px 0;text-align:center}#at3winsvc-filter{background-repeat:no-repeat;background-position:right;background-image:url(data:image/gif;base64,R0lGODlhHgAUALMAAJiYmHV1deTk5Kmpqbe3t9nZ2Y2Njfn5+fT09Ozs7MnJyYGBgWpqav39/WZmZv///yH5BAAAAAAALAAAAAAeABQAAASi8MlXxgoLqDa7/xICOGTpLAKoTshCMsZgBG+6gqNjJA93DAxH4HDzCEgGTqdBIBGKnSYjoewcXAvoZJRVDUhErcEBWClIPC1X1fg6ENrHl4GoThquQJxCKn+kA3sPY2QHSkwMQQJ2Nw0INEIABBYmATZxCQtBJpyWgg0KBkEMCwQKm0KXgoYTBaiegh8NriUBabFLtH24Hg2zm368HgULKDcRADs=);border:1px solid #d2d2d1;padding:15px 38px 15px 9pt;margin:0 auto;width:374px;text-align:left;font-size:18px;border-radius:5px;box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);color:#666}#service-filter:hover{border-color:#9c9c9c}#service-filter:focus{border-color:#3dadfc;box-shadow:0 0 4px rgba(61,173,252,.8);-webkit-box-shadow:0 0 4px rgba(61,173,252,.8);-moz-box-shadow:0 0 4px rgba(61,173,252,.8);outline:0}#at3wintoolbox{margin:0 0 0 20px;height:340px;overflow:auto;padding:10px 0}#at3wintoolbox a{display:block;float:left;width:180px;padding:4px;margin-bottom:10px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;font-size:1pc;color:#235dab}#at3wintoolbox a:focus,#at3wintoolbox a:hover{background-color:#2095f0}#at3wintoolbox a:focus,#at3wintoolbox a:hover,#at3wintoolbox span:hover{text-decoration:none;color:#fff;font-weight:400;text-shadow:none;opacity:1;filter:alpha(opacity=100);cursor:pointer}#at3wintoolbox span{display:block;height:2pc;line-height:2pc;padding-left:38px!important;width:auto!important}.service-icon{padding:4px 8px}.service-icon:hover{background:#2095f0;color:#fff}.service-icon span{padding-left:20px}#at3winssi{position:absolute;right:50px;top:0;height:50px;display:block}.at-quickshare-header-peep{position:absolute;top:0;right:34px;height:1pc;padding:6px;border-left:1px solid #dedede;cursor:pointer}.at-quickshare-header-peep.peep-active{background:#dedede;cursor:default}.at-quickshare-header-peep span{display:inline-block;background:url(data:image/gif;base64,R0lGODlhBwAEAIABALm5uf///yH5BAEAAAEALAAAAAAHAAQAAAIIhA+BGWoNWSgAOw==) no-repeat right;padding-right:11px}.at-quickshare-header-peep span img{display:block;background:#ccc;width:1pc;height:1pc;line-height:20px;overflow:hidden;text-indent:-9999px;border:1px solid #bbb;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px}.at-quickshare-header-peep ul{position:absolute;top:25px;left:-75px;width:140px;background:#fff;border:1px solid #bbb;border-radius:4px;box-shadow:0 1px 4px hsla(0,0%,40%,.8);margin:0;padding:0;font-weight:400;z-index:1100}.at-quickshare-header-peep ul li{list-style:none;font-size:9pt;padding:0;margin:0;text-align:left}.at-quickshare-menu{outline:0}.at-quickshare-menu li.at-quickshare-menu-sep{border-bottom:1px solid #dedede}.at-quickshare-header-peep ul li a{display:block;padding:5px 10px;text-decoration:none;color:#666}.at-quickshare-header-peep ul li a:hover{background:#0d98fb;text-decoration:none;color:#fff}#at_auth{position:relative;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;-o-box-sizing:content-box;border-top:1px solid #d5d6d6!important;padding:10px 10px 7px;line-height:1pc;height:1pc}#atic_signin{cursor:pointer}#atic_signin,#atic_signin:hover{text-decoration:none}#atic_signin #at_auth:hover{background:#2095f0;text-decoration:none;color:#fff!important}#atic_usersettings{cursor:pointer}#atic_usersettings:hover{text-decoration:underline}#atic_usersignout{font-size:11px;position:absolute;top:10px;right:10px;cursor:pointer}#atic_usersignout:hover{text-decoration:underline}#at_auth img{width:1pc;height:1pc;overflow:hidden;border:none;padding:0;margin:0 5px 0 0;float:left}#at_auth a{text-decoration:none}#at16pf{height:auto;text-align:right;padding:4px 8px}@media screen and (max-width:680px){#at3win{width:95%;left:auto;margin-left:auto}}@media print{#at3win,#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,#at-recommendedside,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}.addthis_bar .addthis_bar_p{margin-right:auto}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style><style type="text/css">#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at16pc,#at16pi,#at16pib,#at_complete,#at_email,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}.at15a{border:0;height:0;margin:0;padding:0;width:230px}.atnt{text-align:center!important;padding:6px 0 0!important;height:24px!important}.atnt a{text-decoration:none;color:#36b}.atnt a:hover{text-decoration:underline}#at15s,#at16nms,#at16p,#at16p form input,#at16p label,#at16p textarea,#at16recap,#at16sas,#at_msg,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper,#at16ps .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon,#at16ps .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_16x16_white_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.addthis_32x32_white_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.addthis_24x24_white_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.addthis_20x20_white_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon,.sortable-list-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s.atiemode2{width:252px!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15s.atiemode2 a#at15sptx,.at15sie6 a#at15sptx{right:8px}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at16nms,#at16sas{padding:4px 5px}#at16nms{display:none}#at16sas{clear:left;padding-top:1pc;padding-bottom:1pc}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.atiemode2{width:114px!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at16ps .at_item:focus,#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}* html #at_hover .at_item{border:1px solid #fff}* html #at_hover .at_item.athov{border:1px solid #e5e5e5!important;margin:1px!important}#at_email15{padding-top:5px}.at15e_row{height:28px}.at15e_row label,.at15e_row span{padding-left:10px!important;display:block!important;width:60px!important;float:left!important}.at15e_row input,.at15e_row textarea{display:block!important;width:150px!important;float:left!important;background:#fff!important;border:1px solid #ccc!important;color:#333!important;font-size:11px!important;font-weight:400!important;padding:0!important}#at_email input,#at_email label,#at_email textarea{font-size:11px!important}#at_email #at16meo{margin:15px 0 0 2px}#at16meo span{float:left;margin-right:5px;padding-top:4px}#at16meo a{float:left;margin:0}#at_sending{top:130px;left:110px;position:absolute;text-align:center}#at_sending img{padding:10px}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:140px}.addthis_toolbox.addthis_close_style .addthis_button_google_plusone{width:65px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_facebook_like{width:85px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_tweet{width:90px;overflow:hidden}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px;*height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc;*height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter:alpha(opacity=100)}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs,.addthis_20x20_style .dummy .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs,.addthis_32x32_style .dummy .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{background-position:0 0}.at16nc,.at300bs{overflow:hidden;display:block;height:1pc;width:1pc;line-height:1pc!important}.at16t{padding-left:20px!important;width:auto;cursor:pointer;text-align:left;overflow:visible!important}#at_feed{display:none;padding:10px;height:300px}#at_feed span{margin-bottom:10px;font-size:9pt}#at_feed div{width:102px!important;height:26px!important;line-height:26px!important;float:left!important;margin-right:68px}#at_feed div.at_litem{margin-right:0}#at_feed a{margin:10px 0;height:17px;line-height:17px}#at_feed.atused .fbtn{background:url(//s7.addthis.com/static/r05/feed00.gif) no-repeat;float:left;width:102px;cursor:pointer;text-indent:-9000px}#at_feed .fbtn.bloglines{background-position:0 0!important;width:94px;height:20px!important;line-height:20px!important;margin-top:8px!important}#at_feed .fbtn.yahoo{background-position:0 -20px!important}#at_feed .fbtn.newsgator,.fbtn.newsgator-on{background-position:0 -37px!important}#at_feed .fbtn.technorati{background-position:0 -71px!important}#at_feed .fbtn.netvibes{background-position:0 -88px!important}#at_feed .fbtn.pageflakes{background-position:0 -141px!important}#at_feed .fbtn.feedreader{background-position:0 -172px!important}#at_feed .fbtn.newsisfree{background-position:0 -207px!important}#at_feed .fbtn.google{background-position:0 -54px!important;width:78pt}#at_feed .fbtn.winlive{background-position:0 -105px!important;width:75pt;height:19px!important;line-height:19px;margin-top:9px!important}#at_feed .fbtn.mymsn{background-position:0 -158px;width:71px;height:14px!important;line-height:14px!important;margin-top:9pt!important}#at_feed .fbtn.aol{background-position:0 -189px;width:92px;height:18px!important;line-height:18px!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at16clb{font-size:16pt;font-family:verdana bold,verdana,arial,sans-serif}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16pm{background:#fff;width:298px;height:380px;text-align:left;border-right:1px solid #ccc;position:static}#at16pcc,#at16pccImg{position:fixed;top:0;left:0;width:100%;margin:0 auto;font-size:10px!important;color:#4c4c4c;padding:0;z-index:10000001;overflow:visible}#at16pccImg{height:100%}* html #at16pcc{position:absolute}#at16abifc{overflow:hidden;margin:0;top:10px;left:10px;height:355px;width:492px;position:absolute;border:0}#at16abifc iframe{border:0;position:absolute;height:380px;width:516px;top:-10px;left:-10px}* html div#at16abifc.atiemode2{height:374px;width:482px}* html #at16abifc iframe{height:23pc;left:-10px;top:-10px;overflow:hidden}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001}#at16p,#atie6cmifh,#atie6ifh{position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#atie6ifh{width:322px;height:381px;margin-left:-165px}#atie6cmifh,#atie6ifh{padding:0;z-index:100001}#atie6cmifh{width:15pc;height:225px;margin:0}#at_share{margin:0;padding:0}#at16ps{overflow-y:scroll;height:19pc;padding:5px}a#at16pit{position:absolute;top:37px;right:10px;display:block;background:url(data:image/gif;base64,R0lGODlhEAAUAKIFAKqqquHh4cLCwszMzP///////wAAAAAAACH5BAEAAAUALAAAAAAQABQAAAMtOLqsAqWQSSsN0OoLthfeNoTaSFbmOaUqe7okHMoeLaqUXeITiGM/SGM4eEQSADs=) no-repeat;width:1pc;height:20px;line-height:19px;margin-right:-17px;text-align:center;overflow:hidden;color:#36b}#at16pi{background:#e5e5e5;text-align:left;border:1px solid #ccc;border-bottom:0}#at16pi a{text-decoration:none;color:#36b}#at16p #at16abc{margin-left:2px!important}#at16pi a:hover{text-decoration:underline}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at16pc form{margin:0}#at16pc form label{display:block;font-size:11px;font-weight:700;padding-bottom:4px;float:none;text-align:left}#at16pc form label span{font-weight:400;color:#4c4c4c;display:inline}#at_email form .abif{width:17pc!important}#at_email textarea{height:55px!important;word-wrap:break-word}* html #at_email textarea,:first-child+html #at_email textarea{height:42px!important}#at_email label{width:220px}#at_email input,#at_email textarea{background:#fff;border:1px solid #bbb;width:17pc!important;margin:0;margin-bottom:8px;font-weight:400;padding:3px!important;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:11px;line-height:1.4em;color:#333}#at_email form .atfxmode2{width:279px!important}#at16pc form .at_ent{color:#333!important}#at16pc textarea{height:3pc}#at16pc form input:focus,#at16pc textarea:focus{background:ivory;color:#333}#at16p .atbtn,#at16recap .atbtn{background:#fff;border:1px solid #b5b5b5;width:60px!important;padding:2px 4px;margin:0;margin-right:2px!important;font-size:11px!important;font-weight:700;color:#333;cursor:pointer}#at16p .atbtn:focus,#at16p .atbtn:hover,#at16recap .atbtn:focus,#at16recap .atbtn:hover{border-color:#444;color:#06c}#at16p .atrse,#at16recap .atrse{font-weight:400!important;color:#666;margin-left:2px!important}#atsb .atbtn{width:78px!important;margin:0!important}#at_email #ateml{text-align:right;font-size:10px;color:#999}#at16pc{height:343px!important;font-size:11px;text-align:left;color:#4c4c4c}#at_email{padding:5px 10px}#at16pc .tmsg{padding:4px 2px;text-align:right}#at16psf{position:relative;background:#f2f2f2 url(data:image/gif;base64,R0lGODlhGQEVAMQYAGZmZuDg4Ozs7MjIyMzMzPj4+LOzs3BwcMbGxsvLy5+fn/X19djY2IODg+bm5paWlnl5eeLi4oyMjKmpqdXV1dvb28/Pz////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABgALAAAAAAZARUAAAX/ICaOGJFYaKqubOu+cCzPdG3feK7vPJwQpOBoEChcjsikcslsOp/QqHRKrVqv2Kx2Gy0EBkKRgMEtm8/otHrNTjMEQYGjTa/b7/h82gEfVfSAgYKDhGcVQ0sLBhAAEAYLhZGSk5RqYBgBSgsNAA0GnA2QlaOkpaZHASVGSQYACEgIABOntLW2eAUmSxASShIHt8HCw1snSwAGSq3EzM3OSyhLBw9KD8DP2Nm30UoKrrAACtrj5KMWCYmcCgbeAAcR5fHygT+rSQvtAA8A7vDz/wDV5MIUJVa/gAgTZkmFYYAUg70USpz45BKGPwUPiKPIseOhEXI6ihzphE8cMiRTMI58E6ZhEZUwEXqx2LIEAwsUKujcybOnz59AgwodSrSo0aNIkypdyrSpU58ofoQJAQA7) no-repeat center center;border-bottom:1px solid #ccc;height:20px;padding:4px 10px;text-align:center}* html #at16psf input,:first-child+html #at16psf input{padding:0}#at16psf input,#at16psf input:focus{background:#fff;border:none;width:220px;margin:2px 0 0;color:#666;outline-style:none;outline-width:0;padding:2px 0 0;line-height:9pt;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt}#at16pcc .at_error,#at16recap .at_error{background:#f26d7d;border-bottom:1px solid #df5666;padding:5px 10px;color:#fff}#at16pcc #at_success{background:#d0fbda;border-bottom:1px solid #a8e7b7;padding:5px 10px;color:#4c4c4c}#at_complete{font-size:13pt;color:#47731d;text-align:center;padding-top:130px;height:13pc!important;width:472px}#at_s_msg{margin-bottom:10px}.atabout{left:55px}.ac-about{right:20px}.at_baa{display:block;overflow:hidden;outline:0}#at15s #at16pf a{top:1px}#at16pc form #at_send{width:5pc!important}#at16pp{color:#4c4c4c;position:absolute;top:9pt;right:9pt;font-size:11px}#at16pp label{font-size:11px!important}#at16ppc{padding:10px;width:179px}#at16pph{padding:5px 0 10px}#at16pph select{margin:5px 0 8px}#at16pp .atinp{width:156px}#at16ppb{background:#fff;border:1px solid #ccc;height:274px}#at16ep{height:1pc;padding:8px}#at16ep a{display:block;height:1pc;line-height:1pc;padding-left:22px;margin-bottom:8px;font-size:9pt}#at16ep a.at_gmail{background:url(data:image/gif;base64,R0lGODlhEAAQALMPAPKqo95TU+NkY/TCwP74+PbX1/zo59wtJ/nx7uZ7fvnRzfCTgvq2td9DQf///////yH5BAEAAA8ALAAAAAAQABAAAARi8MlJq700hMS6/4vWNIdQOERKOMgyvqSgOLRjJAe8CUcw0ApeYyF4DQpCwCDQGyCKo59BGDtNjbRBIvazQRtSxgCwGDAMrO/AcK7ZztcRoO1+B43oOs0Qb8w/gAxFGISFFREAOw==) no-repeat left}#at16ep a.at_hotmail{background:url(data:image/gif;base64,R0lGODlhEAAQAMQfAP7XFG7B4/zjl/JZIAm7TK7V7v3FY/aLRGDNhOqmkA2ql/2YJvfr2Pn7++9vWtXe6/jQvOfw9funZg2EzEWv3zil0heg0zDCbESHx9PpxY6TvJ3QpPJtQf7+/v///////yH5BAEAAB8ALAAAAAAQABAAAAWO4CeOpNhAUFeuzDEMiRepK/S+XDBVjzd6kAWHc3tMjpVZhyE8cByvDsViOQYehsPCSeR8IpQpFZMwGCQHl/dToAQoionGLEHDRJ5CoHJRkM92ED8FCgQEGHNoDgsCJB4XhgpzZwsAjSQZFxcIGgCengwlHRsIpQKfAg0rHQiGEacGqisfDZsdtzSzHz4rIQA7) no-repeat left}#at16ep a.at_yahoo{background:url(data:image/gif;base64,R0lGODlhEAAQAKIHAPylpevx8bsICNJfX/jQ0Kahof8AAP///yH5BAEAAAcALAAAAAAQABAAAANJeLrc/jAuAmolcQhjhBiBBRDDAChAVxzE5g3csKRGQQpFqDL0fsCCQCOFUwR8vI7wECgtjQDg6CfA8DxYmWbVCHi/TK9kTC4zEgA7) no-repeat left}#at16ppf p#atsb{padding-top:20px;font-size:10px}#at16abr{margin-top:10px}#at16abr input{padding:0;margin:0;margin-right:5px}#at16ppso{display:none;text-align:right;margin-top:2px}#at16ppa{background:#fff;border:1px solid #ccc;height:228px;width:178px;overflow:auto}#at16ppa a{display:block;white-space:nowrap;padding:4px 8px;font-size:9pt!important}#at16eatdr{position:absolute;background:#fff;border-top:0;max-height:110px;overflow:auto;z-index:500;top:129px;left:21px;width:277px}* html #at_email #at16eatdr,:first-child+html #at_email #at16eatdr{top:115px!important;width:17pc!important}#at16eatdr a{display:block;overflow:hidden;border-bottom:1px dotted #eee;padding:4px 8px}#at16eatdr a.hover,#at16eatdr a:hover{background:#e0eefa;text-decoration:none;color:#333}#at_pspromo{height:130px;padding-top:10px}#at15psp,#at_pspromo{width:205px;padding-left:5px}#at_testpromo{font-size:9pt;width:220px;display:none}.atm-i #at_pspromo{height:150px}.atm-i #at_pspromo,.atm-i #at_testpromo{width:140px}#at_testpromo input{width:200px}#at_promo .at-promo-content,#at_testpromo .at-promo-content{margin-top:9pt}#at_promo .at-promo-btn,#at_testpromo .at-promo-btn{padding-top:10px}#at_promo h4,#at_testpromo h4{font-family:arial,helvetica,tahoma,verdana,sans-serif;background:0;font-size:14px;font-weight:700;margin:0 0 4px;padding:0;line-height:18px;height:36px}.atm-i #at_promo h4,.atm-i #at_testpromo h4{height:66px}#at_testpromo h4{font-size:13.5px}#at_promo h4 sup{font-size:11px;color:#ee6a44}#at_promo span{display:block}#_atssh{width:1px!important;height:1px!important;border:0!important}.at-promo-single{padding:10px;padding-top:2px;line-height:1.5em}.at-promo-single img{padding:3px}.at-promo-content img{margin-right:5px;margin-bottom:20px;float:left}.addthis_textshare{display:block;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABKCAYAAAAYJRJMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABmNJREFUeNrsmk9oI3UUx99vZjL5n7TbukLbxYve1INa8KAi6F48ubAHV2+KWCoqyF4WpZZ6cuthq1gKe1oU9+CCoLjg+uciCEWQPSjuReyy7Vq7W7LNJM0kM5nxvV9+U5JNk/xCm8wmMw8ek06TXyafee/93u83XwY1Y+jKwsLCiUwm87Gqqg8oigJBMsdxoFqtXs/n86fn5ua+plPoLhNw1NnZ2ZPZbPai67pgWRbQMUjGGINIJMKPOzs7p5aXly/h6apGkYMexZOLSA/K5TKYpgm2bQcKkKZpEIvFIBqNUnAs4qlv0U0CpKInt7a2pjC1+JuDBoeMsobcMAxKtSliQqcJEHmSIofCK8hGgMhEeSFABS+CopVKJfCAPBOAosRG82awEFATIKrNTPOKuAyg54/p8O6Lz0AylgKnVAEo4WxXruKIdW9SGBSNPCz9+jv8uFUdZEAchgcIZAC98+wjMK644Nz8B9x8GcCogFvarQHC6g9ModEhHk/CWw/eD5fX1wYZEDQAkinSCasCzvYdcAwsZgWLR6H78ttgRxDOd1+AbuTAxZnQrZiQsC0+5tAAkomgqmGCi/0C5EuYk5heWMKSj06DFU9B8fKXwBAgRHRe2qr4JTTm0ADyprj2gMocgJPIQnUkhhmlAMPBGEaLmRkDB18r2LJHSwb/kkEF1NBAdgPIMTFqbBOiL7wCypPP1apYMg0RPIzNvs+hFK6uAlz8hC9kZMYcKkBAk1KEpjwTtGKeF3oWT2ApUkEvl8Ct2qBZou5gLQoeIPzRDAty5colqHz/FQeTPHMObKxBhU8/AH17k69pIJ3ka+GhAoTrj84ppqje3gC6eD8WZBfP8887uIajFXEGZzXLkRpzYADRfkjHANIwv1yH9gZ49FDfY63+DI4eraVWIopwYgAp/NtmUmMODCAZy+EqfyyVxS66KKhWofLN55yXnsK0ymI9SscgMn4Ecuvrw7EN0s2b3/tpFT48/hSMJBKw1ypo0VrhjmtYn3SEpUJ+YxPOXPhhODbS0DPox9D/CJepDfYw+g0l5NDeQkAhoMMBRCV3LcSxZ2uCCQfkikXEEnopZMMZLAkmLrXGfE8anR5lUPNyH/rRgML5E/08+m/oW+iGJsBQ53dL/OM6ekr0SL3YpGYicl9Cf6zLz/6LfgH9NjRu9B54C0hwKAgwtwQT27tYiqARET1j6Gl0vUeAFDE2PVZ5Df0Jyc/dRD8nLr7spcAhAqLNKwN9W3zHHfoeVndH6aIT4sJjPYwgSum4uBGUyrPo0xJwzorovi3utNWDCDJF5OwKYA6jTS5W22tl4uK9Z2W9agEUcQOOoE+gT6K/2QYSwfkI/W/x+pb4AdVDTjNHjGl7Y5OxfosUxM2IiDpHETTVBlI9nBvo/6Hv0N3F6+7LVkHfG0W3dkesuoJIM+cG+mdikmgFZ7PfcPgN9Uvm0iKSJkQkTYqaUw8n3284vgJqAYkAjYsamBNR5BucrveDepFuyMhLNxDF0RCpnxdTrm9wfI+gfSIpJloAJnqdkp9w7hlAdZAUkV7etOv4CQfqGkF+cSsrKyfS6TQXcQZNCkOBQiJOwzBOz8zMNIs45+fnT46OjnIRJ0nwgijipGd6dMzlcqeQR6OIs1gsLpZKJf48nVQZw/BMq6v1j6pyAaeu6/S4qlnEub29PeVpo4MGxzNPbIGAmkWcGEEQNPF4y0VZ7YFno4iTtNEhoAZAjSLOEFAToEYRJxXoToCePurCG8cfh2QsCc4uNsDm/iLO3YIB569eg192tEEG1CjipAjq1Pu8Pv0QjDEHnI32Is5YPAmvTqTgymZuYHuiprUYRVAnQHHLlBdx4oxAYwYKkE0iTlVOxGm7MFyAZFLMIRGnJifipFSjMYcGkIym2SFlvSYr4hxcQPvuB8kA4utqJifipFo0qELyfQFJaZoVrSsR51DppGV+jOP1SZIizqECFIo4OwCSsVDE2cFCEWdo9RaKOGUsBBQCOhxAoYiz0dYgFHG2tFDE2cZCEWerdTiEIs6OgEIRp0QENYs468I+FHHeJeIEIV7wY3lzYBGn+EE9N9Wn2cK7W5Y4ErRrAtRkCzh7Urx+wfETUCtIf9UBOus3HOhRET5IurUVcfYbTtf7QT2wes00QBsRpx9w7oUIujuS9hVx+gWHX1jQpHbd2v8CDAAwldUwLVojIgAAAABJRU5ErkJggg==) no-repeat 0 0;width:44px;height:37px;line-height:28px;padding:0 0 0 28px;margin:0;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:9pt;color:#fff;cursor:pointer}.addthis_textshare:hover{background-position:0 -37px;text-decoration:none}.at_img_share{position:absolute;opacity:0;background:url(data:image/gif;base64,R0lGODlhFwAVAMQAAP7+/vLy8vv7+/X19fj4+Pz8/PHx8f39/fDw8O/v7/T09Pn5+fPz8/r6+vb29vf394CAgHZ2dm5ubklJSWRkZFtbW39/f4KCglJSUnt7e3h4eAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAXABUAAAWLICCOZGmeaAocbOu+MFvMdG3fs6DvfO//PY0QqGsYj8iMEslsLJ7QqGUarS4I2Kz2wtV6vwSIeEyGfB/odGTNbkfSaYd8Lqnb75L5fMDv+ymAfoKDghWGhH0KiouMGI6MkAoMk5SVE5eVmQwBnJ2en6ChoqMBBqanqKmqpgitrq+wsa0JtLW2t7i0IQA7) repeat-x bottom;border:1px solid #ccc;width:23px;height:21px;line-height:21px;text-indent:-9999px;padding:0;margin:0;cursor:pointer;z-index:1000}.at_img_share:hover{border-color:#8b8b8b}.at_img_share .addthis_toolbox{width:180px;margin:0 auto}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;-webkit-transition:none;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;-webkit-transition:none;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.atm-i #atic_settings{border:none!important;border-top:1px solid #d5d6d6!important;padding-top:6px!important;top:4px}.at_a11y{position:absolute!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}.at_a11y_container{margin:0;padding:0}.addthis_overlay_container{position:absolute}.addthis_overlay_toolbox{-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px;-moz-border-radius-topleft:10px;-moz-border-radius-topright:10px;border-top-left-radius:10px;border-top-right-radius:10px;padding:5px;background-color:#000;background-color:rgba(0,0,0,.6)}.linkServiceDiv{height:200px;width:25pc;border:1px solid #000;background-color:#aaa}.at_redloading{background:url(data:image/gif;base64,R0lGODlhCgAKAJEDAMzMzP9mZv8AAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAADACwAAAAACgAKAAACF5wncgaAGgJzJ647cWua4sOBFEd62VEAACH5BAUAAAMALAEAAAAIAAMAAAIKnBM2IoMDAFMQFAAh+QQFAAADACwAAAAABgAGAAACDJwHMBGofKIRItJYAAAh+QQFAAADACwAAAEAAwAIAAACChxgOBPBvpYQYxYAIfkEBQAAAwAsAAAEAAYABgAAAgoEhmPJHOGgEGwWACH5BAUAAAMALAEABwAIAAMAAAIKBIYjYhOhRHqpAAAh+QQFAAADACwEAAQABgAGAAACDJwncqi7EQYAA0p6CgAh+QQJAAADACwHAAEAAwAIAAACCpRmoxoxvQAYchQAOw==);height:1pc;width:1pc;background-repeat:no-repeat;margin:0 auto}.at-promo-single-dl-ch{width:90pt;height:37px}.at-promo-single-dl-ff{width:90pt;height:44px}.at-promo-single-dl-saf{width:90pt;height:3pc}.at-promo-single-dl-ie{width:129px;height:51px}.atPinBox{position:fixed;top:25%;left:35%;background:#fff;width:482px;margin:0 auto;overflow:auto;overflow-x:hidden;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;padding:8px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#cfcaca;z-index:10000001}.atPinHdr,.atPinWinHdr{display:block;background:#f1f1f1;border-bottom:1px solid #ccc;box-shadow:0 0 3px rgba(0,0,0,.1);-webkit-box-shadow:0 0 3px rgba(0,0,0,.1);-moz-box-shadow:0 0 3px rgba(0,0,0,.1);padding:8px 10px;font-size:1pc;line-height:1pc;color:#8c7e7e}.atPinHdr img,.atPinWinHdr img{vertical-align:bottom;margin-left:5px;cursor:pointer}.atPinHdr span{vertical-align:top}.atPinHdr{height:1pc}.atPinMn{background:#fff;padding:10px;height:296px;overflow:auto;overflow-x:hidden;text-align:center;position:relative}.atPinHdrMsg{left:20px}.atPinClose{width:9pt;text-align:right;font-weight:700;position:absolute;right:15px;cursor:pointer}.atImgSpanOuter{position:relative;overflow:hidden;height:200px;width:200px;border:1px solid #a0a0a0;float:left;display:block;margin:10px;background-color:#fff}.atImgSpanInner img{cursor:pointer}.atImgSpanSize{position:absolute;bottom:0;left:0;right:0;display:block;background:#fff;height:22px;line-height:24px;color:#000;overflow:hidden;font-size:10px;zoom:1;filter:alpha(opacity=70);opacity:.7}.atImgActBtn{display:none;width:2pc;height:2pc;position:absolute;top:75px;left:5pc;background-color:#fff}.atPinWin{font-family:arial,helvetica,tahoma,verdana,sans-serif;text-align:center}.atPinWinHdr{display:block;font-size:20px;height:20px;width:100%;position:fixed;z-index:1}.atPinWinMn{text-align:center;padding:40px 0 0;display:inline-block}.atImgIco,.atImgMsg{float:left}.atImgIco{margin-right:5px}.atNoImg{display:block;margin-top:40px;font-size:1pc;line-height:1pc;color:#8c7e7e}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}.at3PinWinMn{text-align:center;padding:20px 0 0 20px;overflow:auto;height:437px}.at3ImgSpanOuter{position:relative;width:185px;height:185px;border:1px solid #dedede;margin:0 10px 10px 0;overflow:hidden;float:left}.at3ImgSpanOuter:hover{border-color:#3dadfc;box-shadow:0 0 3px #3dadfc;cursor:pointer}.at3ImgSpanOuter .atImgLB{display:block;position:absolute;top:0;bottom:0;left:0;right:0;z-index:1;background-color:rgba(0,0,0,.8);background-repeat:no-repeat;background-position:center center}#at3lb{position:fixed;top:0;right:0;left:0;bottom:0;z-index:16777270;display:none}.at3lblight{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpizCuu/sRABGBiIBKMKqSOQoAAAwC8KgJipENhxwAAAABJRU5ErkJggg==);background:hsla(217,6%,46%,.65)}.at3lbdark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBg2M9ABGBiIBKMKqSOQoAAAwBAlwDTJEe1aAAAAABJRU5ErkJggg==);background:rgba(0,0,0,.5)}.at3lbnone{background:hsla(0,0%,100%,0)}#at3win{position:fixed;_position:absolute;top:15%;left:50%;margin-left:-20pc;background:#fff;border:1px solid #d2d2d1;width:40pc;box-shadow:0 0 8px 4px rgba(0,0,0,.25);font-family:helvetica neue,helvetica,arial,sans-serif;z-index:16777271;display:none;overflow:hidden}#at3win #at3winheader{position:relative;border-bottom:1px solid #d2d2d1;background:#f1f1f1;height:49px;cursor:default}#at3win #at3winheader p{position:absolute;top:1pc;left:75pt;width:475px;padding:0;margin:0;font-size:14px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#at3win #at3winheader h3{height:49px;text-align:left;line-height:49px;margin:0 50px 0 22px;border:0;padding:0 20px;font-size:1pc;font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:700;text-shadow:0 1px #fff;color:#333;direction:ltr}#at3win #at3winheader h3.logoaddthis{padding-left:22px}#at3win #at3winheader .at3winheadersvc{display:inline-block;position:absolute;top:15px;left:20px;cursor:default!important;opacity:1!important}#at3win #at3winheader .at3winheadersvc .at-icon,#at3win #at3winheader .at3winheadersvc .at-icon-wrapper{display:block}#at3win #at3winheader #at3winheaderclose{display:block;position:absolute;top:0;right:0;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcFJpZ2h0czpNYXJrZWQ9IkZhbHNlIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQwNzc2QTQ5Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQwNzc2QTQ4Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzMgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InV1aWQ6OEE1QUU0REMzMEU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6M0M5RkJGRTEyQUU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz78RHhFAAAApUlEQVR42rxTiQnAIAxU6QAdxRW6iZ1EnKRu4gqO0g1sCilEvT7Q0kBQ9O4wl6hLKepNGPUyhmMTQhhpSZTZez8jMGEWWizlRJi1fUHiS8dARHaMSaiELPaViCB3WC1NBMB4CMozWaJuuwBE1BkZdoEB8Qn5kzaaC7fbgN0xN+TYlNOJmCvyXjPwpBKRL7BnhgERiwQmHhDothDJjMVz8Ptv3AQYAJWjVVdnlDZCAAAAAElFTkSuQmCC);background-repeat:no-repeat;background-position:center center;border-left:1px solid #d2d2d1;width:49px;height:49px;line-height:49px;overflow:hidden;text-indent:-9999px;text-shadow:none;cursor:pointer}#at3win #at3winheader #at3winheaderclose:hover{background-color:#dedede}#at3win #at3wincontent{height:440px;position:relative}#at3wincopy,#at3winemail,#at3winshare{height:440px}#ate-promo .addthis_button_twitter .aticon-twitter{background-position:0 -4pc!important}#at3wincontent{-o-box-sizing:content-box;box-sizing:content-box}#at3win #at3wincontent.at3nowin{position:relative;height:25pc;padding:20px;overflow:auto}#at3winfooter{position:relative;background:#fff;-o-box-sizing:content-box;box-sizing:content-box;border-top:1px solid #d2d2d1;height:11px;_height:20px;line-height:11px;padding:5px 20px;font-size:11px;color:#666}#at3winfooter a{margin-right:10px;text-decoration:none;color:#666;float:left}#at3winfooter a:hover{text-decoration:none;color:#000}#at3logo{background:url(//s7.addthis.com/static/t00/at3logo-sm.gif) no-repeat left center!important;padding-left:10px}#at3privacy{position:absolute;top:5px;right:10px;background:url(//s7.addthis.com/static/t00/at3-privacy.gif) no-repeat right center!important;padding-right:14px}#at3winfilter{background:#f1f1f1;border-top:1px solid #fff;border-bottom:1px solid #d2d2d1;padding:13px 0;text-align:center}#at3winsvc-filter{background-repeat:no-repeat;background-position:right;background-image:url(data:image/gif;base64,R0lGODlhHgAUALMAAJiYmHV1deTk5Kmpqbe3t9nZ2Y2Njfn5+fT09Ozs7MnJyYGBgWpqav39/WZmZv///yH5BAAAAAAALAAAAAAeABQAAASi8MlXxgoLqDa7/xICOGTpLAKoTshCMsZgBG+6gqNjJA93DAxH4HDzCEgGTqdBIBGKnSYjoewcXAvoZJRVDUhErcEBWClIPC1X1fg6ENrHl4GoThquQJxCKn+kA3sPY2QHSkwMQQJ2Nw0INEIABBYmATZxCQtBJpyWgg0KBkEMCwQKm0KXgoYTBaiegh8NriUBabFLtH24Hg2zm368HgULKDcRADs=);border:1px solid #d2d2d1;padding:15px 38px 15px 9pt;margin:0 auto;width:374px;text-align:left;font-size:18px;border-radius:5px;box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);color:#666}#service-filter:hover{border-color:#9c9c9c}#service-filter:focus{border-color:#3dadfc;box-shadow:0 0 4px rgba(61,173,252,.8);-webkit-box-shadow:0 0 4px rgba(61,173,252,.8);-moz-box-shadow:0 0 4px rgba(61,173,252,.8);outline:0}#at3wintoolbox{margin:0 0 0 20px;height:340px;overflow:auto;padding:10px 0}#at3wintoolbox a{display:block;float:left;width:180px;padding:4px;margin-bottom:10px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;font-size:1pc;color:#235dab}#at3wintoolbox a:focus,#at3wintoolbox a:hover{background-color:#2095f0}#at3wintoolbox a:focus,#at3wintoolbox a:hover,#at3wintoolbox span:hover{text-decoration:none;color:#fff;font-weight:400;text-shadow:none;opacity:1;filter:alpha(opacity=100);cursor:pointer}#at3wintoolbox span{display:block;height:2pc;line-height:2pc;padding-left:38px!important;width:auto!important}.service-icon{padding:4px 8px}.service-icon:hover{background:#2095f0;color:#fff}.service-icon span{padding-left:20px}#at3winssi{position:absolute;right:50px;top:0;height:50px;display:block}.at-quickshare-header-peep{position:absolute;top:0;right:34px;height:1pc;padding:6px;border-left:1px solid #dedede;cursor:pointer}.at-quickshare-header-peep.peep-active{background:#dedede;cursor:default}.at-quickshare-header-peep span{display:inline-block;background:url(data:image/gif;base64,R0lGODlhBwAEAIABALm5uf///yH5BAEAAAEALAAAAAAHAAQAAAIIhA+BGWoNWSgAOw==) no-repeat right;padding-right:11px}.at-quickshare-header-peep span img{display:block;background:#ccc;width:1pc;height:1pc;line-height:20px;overflow:hidden;text-indent:-9999px;border:1px solid #bbb;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px}.at-quickshare-header-peep ul{position:absolute;top:25px;left:-75px;width:140px;background:#fff;border:1px solid #bbb;border-radius:4px;box-shadow:0 1px 4px hsla(0,0%,40%,.8);margin:0;padding:0;font-weight:400;z-index:1100}.at-quickshare-header-peep ul li{list-style:none;font-size:9pt;padding:0;margin:0;text-align:left}.at-quickshare-menu{outline:0}.at-quickshare-menu li.at-quickshare-menu-sep{border-bottom:1px solid #dedede}.at-quickshare-header-peep ul li a{display:block;padding:5px 10px;text-decoration:none;color:#666}.at-quickshare-header-peep ul li a:hover{background:#0d98fb;text-decoration:none;color:#fff}#at_auth{position:relative;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;-o-box-sizing:content-box;border-top:1px solid #d5d6d6!important;padding:10px 10px 7px;line-height:1pc;height:1pc}#atic_signin{cursor:pointer}#atic_signin,#atic_signin:hover{text-decoration:none}#atic_signin #at_auth:hover{background:#2095f0;text-decoration:none;color:#fff!important}#atic_usersettings{cursor:pointer}#atic_usersettings:hover{text-decoration:underline}#atic_usersignout{font-size:11px;position:absolute;top:10px;right:10px;cursor:pointer}#atic_usersignout:hover{text-decoration:underline}#at_auth img{width:1pc;height:1pc;overflow:hidden;border:none;padding:0;margin:0 5px 0 0;float:left}#at_auth a{text-decoration:none}#at16pf{height:auto;text-align:right;padding:4px 8px}@media screen and (max-width:680px){#at3win{width:95%;left:auto;margin-left:auto}}@media print{#at3win,#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,#at-recommendedside,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}.addthis_bar .addthis_bar_p{margin-right:auto}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style><style type="text/css">{visibility: hidden;}</style><script src="./VTOL Flying Wing - NI Case Study_files/satellite-5638e2de64746d755100274d.js"></script><style type="text/css">{visibility: hidden;}</style><style type="text/css">{visibility: hidden;}</style><script src="./VTOL Flying Wing - NI Case Study_files/s-code-contents-523d44688c97ac3a65cbb90612c024fd390698b2.js"></script><link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/jqueryui.autocomplete.css"><script type="text/javascript" charset="utf-8" async="" src="./VTOL Flying Wing - NI Case Study_files/menu.f69da47d305e6f24c64c.js"></script><style type="text/css">{visibility: hidden;}</style><script src="./VTOL Flying Wing - NI Case Study_files/satellite-561e577135353100170008c9.js"></script></head><body><div class="mboxDefault" id="mbox-target-global-mbox-1452682861957-208252" style="visibility: visible; display: block;"></div><div style="visibility: hidden; display: none" id="mboxImported-default-target-global-mbox-0"></div>
+       
+        <!-- End of Dynamic Tag Manager Loader Code-->
+	<!--PRODUCTION STANDARD WRAPPER -->
+	
+        <meta name="Wrapper" content="yes">
+   
+     
+    <!-- jquery ui css first-->
+    <link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/jquery-ui.css">  
+	
+    <!-- pnx framework -->
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/base.css">
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/containers.css">
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/content-blocks.css">
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/icons.css">
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/buttons.css">
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/sid-wrapper.css">
+	<link rel="stylesheet" type="text/css" href="./VTOL Flying Wing - NI Case Study_files/icon-fonts.css">
+	
+  	  <!-- core JS with loader, jquery, and jquery ui 1.9.2 -->
+    <script src="./VTOL Flying Wing - NI Case Study_files/ni.core.min.js"></script>
+    
+    
+    <!--scripts for autocomplete -->
+    <script src="./VTOL Flying Wing - NI Case Study_files/jquery.cookie.js"></script>
+    <script src="./VTOL Flying Wing - NI Case Study_files/pnx.autocomplete.js"></script>
+    <script src="./VTOL Flying Wing - NI Case Study_files/jquery.dotdotdot.js"></script>
+   
+    
+    
+    <!--panels.js contains scripts for panels, menu adjustment, notifications, search, and global gateway -->
+    
+    <script src="./VTOL Flying Wing - NI Case Study_files/panels.js"></script>
+  
+
+   
+          
+
+
+
+        
+
+        <!--  <link rel="stylesheet" href="/apps/casestudies/css/style.css"/>-->
+        
+
+        	
+        	
+        	
+        
+        <script type="text/javascript" charset="utf-8"><!--
+<!--
+
+            //var $ = jQuery.noConflict();
+            $(function () {
+				$('.collapse').collapse({collapsibleContent: '.collapse-content'});	
+                /*$('.csheader-no-bg > a').toggle(function () {
+                    $(this).find('span.ni-icons-sprite').removeClass('arrow-closed').addClass('arrow-open');
+                    $('html, body').animate({scrollTop: $(".csheader-no-bg").offset().top}, 1000);
+                }, function () {
+                    $(this).find('span.ni-icons-sprite').removeClass('arrow-open').addClass('arrow-closed');
+                    $('html, body').animate({scrollTop: $("#wrapper").offset().top}, 1000);
+                });*/
+            });
+
+
+            //-->
+//--></script>
+        <!-- Additional CSS files -->
+        <link rel="stylesheet" href="./VTOL Flying Wing - NI Case Study_files/style.css">
+        <!--[if lt IE 9]>
+                        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+                <![endif]-->
+
+        <link rel="shortcut icon" href="http://sine.ni.com/cs/app/doc/p/id/images/favicon.ico">
+
+    
+    
+        
+
+        <div class="pnx-page-wrap grid16 clearfix">
+
+            <!-- PNX-HEADER START-->
+            
+
+
+
+	<div class="global-header noindex">
+       
+	  <div class="global-header-nav-secondary clearfix sid-page-center">
+		<div class="page-center grid16">
+            <div class="clearfix">
+                <div class="left">
+    <ul>
+         <li class="utils-gg">
+            <a href="http://www.ni.com/global-gateway/?rtrn=http%3A%2F%2Fsine.ni.com%2Fcs%2Fapp%2Fdoc%2Fp%2Fid%2Fcs-16701" class="global-gateway">
+                <span class="pnx-icon-left pnx-icon-gg-alt"></span>
+                    <span class="country">United States</span>
+                </a>
+
+                <span class="global-header-nav-secondary-pipe">|</span>
+           </li>
+            <li>
+                <a href="https://www.ni.com/contact-us/">Contact Us</a>       
+            </li>
+        </ul>  
+
+                </div>
+                <div class="right">
+        <ul>
+          
+               	<li>
+                    <!--log in script-->
+				<span class="global-header-nav-up-wrap"><a href="https://lumen.ni.com/nicif/us/header_login/content.xhtml?action=login&amp;du=http%3A%2F%2Fsine.ni.com%2Fcs%2Fapp%2Fdoc%2Fp%2Fid%2Fcs-16701">Log in</a> or <a href="https://lumen.ni.com/nicif/us/header_create/content.xhtml?action=create&amp;du=http%3A%2F%2Fsine.ni.com%2Fcs%2Fapp%2Fdoc%2Fp%2Fid%2Fcs-16701">create a new user account.</a></span>
+				<script type="text/javascript">
+					NI.require({
+						js: "/widgets/pnx/1.0/js/up-data.js",
+						priority: "high"
+					}, function() {	
+						$('.global-header-nav-up-wrap').niUP( 'en-US' );
+					});
+				</script>
+                  <!--end of log in script-->
+                <span class="global-header-nav-secondary-pipe">|</span>
+			</li>
+				
+				
+					<li>
+						<a href="http://www.ni.com/myni/">MyNI</a>
+                       <span class="global-header-nav-secondary-pipe">|</span>
+                    </li>
+                    
+                    	
+                     
+				
+					
+					<li class="global-header-nav-notifications">
+						<a href="http://tesla.ni.com/niwn/inbox.xhtml">Notifications</a>
+                    </li>
+
+					<script type="text/javascript">
+						NI.require({
+							js: ["/javascript/pnx/utils.js"]
+						}, function() {
+							$(".global-header-nav-notifications a")
+								.click(function(e) {
+									// Open call-me page in popup window
+									PNX.utils.Popup( $(this).attr("href"), "Notifications", {
+										width: 590,
+										height: 560,
+										scrollbars: "yes",
+										resizable: 1
+									}).focus();
+
+									return false;
+								});
+						});
+					</script>
+					
+				
+					
+				<li class="bevel_divider-left"></li>
+                	<li class="global-header-nav-cart">
+						<a href="http://sine.ni.com/apps/utf8/nios.store?action=view_cart&amp;loc=en-US"><span class="homepage-icon homepage-icon-cart"></span>Cart</a>
+					</li>
+				     <li class="bevel_divider-right"></li>	
+ </ul>
+    
+                </div>
+             </div>
+        </div>
+	</div>
+    <div class="global-header-nav-primary pnx-block-2x sid-page-center">
+            <div class="grid16 page-center clearfix"><!-- start of centering wrapper -->
+                <ul class="clearfix" id="panelcontrols">
+                   <li class="ni_logo" style="width: 145px !important;">
+                        <a href="http://www.ni.com/">
+                        <span class="pnx-icon-font icon-ni_logo" lang="en"></span></a>
+                    </li>
+                      
+                    <li class="navButtons" lang="en-US" style="width: 113.333px !important;">
+                         <a href="http://www.ni.com/products/"><span> Products</span></a>
+                    </li>
+                      
+                    <li class="navButtons" lang="en-US" style="width: 113.333px !important;">
+                         <a href="http://www.ni.com/solutions/"><span> Industries &amp; Applications</span></a>
+                    </li>
+                      
+                    <li class="navButtons" lang="en-US" style="width: 113.333px !important;">
+                         <a href="http://www.ni.com/support/"><span> Support &amp; Services</span></a>
+                    </li>
+                      
+                    <li class="navButtons" lang="en-US" style="width: 113.333px !important;">
+                         <a href="http://www.ni.com/community/"><span> Community</span></a>
+                    </li>
+                      
+                    <li class="navButtons" lang="en-US" style="width: 113.333px !important;">
+                         <a href="http://www.ni.com/academic/"><span> Academic</span></a>
+                    </li>
+                      
+                    <li class="navButtons" lang="en-US" style="width: 113.333px !important;">
+                         <a href="http://www.ni.com/events/"><span> Events &amp; Training</span></a>
+                    </li>
+
+                    <li class="global-header-search">
+                        <form id="autoComplete-global" name="autoComplete-global" class="pnx-form" type="GET" action="http://search.ni.com/nisearch/app/main">
+                            <div class="autoCompleteItem-global pnx-form">
+                                 <input placeholder="" class="niAutocompleteInput ui-autocomplete-input" data-search-type="globalSearch" type="text" id="n33_autoCompleteInput" name="q" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                 <input type="hidden" name="pg" id="pg" value="1">
+                                 <input type="hidden" name="sn" id="sn" value="">
+                                 <span class="pnx-icon-font icon-search"></span>
+                            <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="z-index: 2; display: none;"></ul></div>
+                        </form>
+                    </li>
+                </ul>
+                <div id="panels">
+    <div class="global-header-nav-primary-panel grid16 page-center" style="display: none;">
+        <div class="panel-midborder">
+            <div class="panel-innerborder">
+                <div class="clearfix">
+                    <div class="grid12 clearfix left verticalline">
+                        <h2>Shop by Products</h2>
+                            <div class="clearfix left">
+                                <div class="col3of4 left clearfix">
+                                    <h3>Hardware</h3>
+                                    <div class="col1of3 left products">
+                                        <ul>
+                                                <li>
+                                                    <a href="http://www.ni.com/data-acquisition/">Data Acquisition</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/data-acquisition/multifunction/">Multifunction DAQ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://sine.ni.com/np/app/main/p/ap/daq/lang/en/pg/1/sn/n17:daq,n21:35">Counters/Timers</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/digitalio/">Digital I/O</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/dsa/">Dynamic Signal Analyzers</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/signalconditioning/">Signal Conditioning</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/data-acquisition/compactdaq/">Modular DAQ Systems</a>
+                                                </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <a href="http://www.ni.com/automatedtest/">Automated Test</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/modularinstruments/">Modular Instruments</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/digitalmultimeters/">Digital Multimeters</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/digitizers/">Digitizers/Oscilloscopes</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/hsdio/">High-Speed Digital I/O</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/rf/">RF and Wireless</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/signalgenerators/">Signal Generators</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/switches/">Switches</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/flexrio/">NI FlexRIO Custom Instrumentation</a>
+                                            </li>  
+                                            <li>
+                                                <a href="http://www.ni.com/powersupplies/">Precision DC Power Sources</a>
+                                            </li>  
+                                        </ul>
+                                    </div>
+                                    <div class="col1of3 left products">
+                                          <ul>
+                                            <li><a href="http://www.ni.com/embedded-systems/">Embedded Control and Monitoring Hardware</a></li>
+                                            <li><a href="http://www.ni.com/compactrio/">Modular Embedded Systems</a></li>
+                                            <li><a href="http://www.ni.com/singleboard/">Board-Level Embedded Systems</a></li>
+                                            <li><a href="http://www.ni.com/motion/">Motion Controllers, Motors, Drives</a></li>
+                                            <li><a href="http://www.ni.com/vision/">Vision Systems and Hardware</a></li>
+                                            <li><a href="http://sine.ni.com/nips/cds/view/p/lang/en/nid/206844">Industrial PCs</a></li>
+                                            <li><a href="http://www.ni.com/labview/touch-panel/">HMIs and Touch Panels</a></li>
+                                            <li><a href="http://www.ni.com/wsn/">Wireless Sensor Networks</a></li>
+                                            <li><a href="http://www.ni.com/fpga-hardware/">FPGA-Based Hardware</a></li>
+                                          </ul>
+                                              <ul>
+                                            <li><a href="http://www.ni.com/comm/">Industrial Communication Buses</a></li>
+                                            <li><a href="http://sine.ni.com/np/app/main/p/ap/global/lang/en/pg/1/sn/n24:Ethernet">Ethernet</a></li>
+                                            <li><a href="http://www.ni.com/ethercat/">EtherCAT</a></li>
+                                            <li><a href="http://sine.ni.com/nips/cds/view/p/lang/en/nid/204266">PROFIBUS</a></li>
+                                            <li><a href="http://www.ni.com/can/">CAN</a></li>
+                                            <li><a href="http://www.ni.com/lin/">LIN</a></li>
+                                          </ul>
+                                    </div>
+                                    <div class="col1of3 right">
+                                        <ul class="products">
+                                                <li><a href="http://www.ni.com/instrument-control/">Instrument Control</a></li>
+                                                <li><a href="http://www.ni.com/gpib/">GPIB</a></li>
+                                                <li><a href="http://www.ni.com/serial/">Serial</a></li>
+                                                <li><a href="http://www.ni.com/vxi/">VXI/VME</a></li>
+                                        </ul>
+                                        <ul>
+                                           <h4>Educational Hardware</h4>
+                                                <li>
+                                                    <a href="http://www.ni.com/ni-elvis/">NI ELVIS</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/mydaq/">NI myDAQ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/usrp/">NI USRP</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/myrio/">NI myRIO</a>
+                                                </li>
+                                        </ul>
+                                        <ul>
+                                        <h4>Hardware Platforms</h4>
+                                                <li>
+                                                    <a href="http://www.ni.com/pxi/">PXI</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/compactrio/">NI CompactRIO</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://www.ni.com/data-acquisition/compactdaq/">NI CompactDAQ</a>
+                                                </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid11 clearfix left">
+                                    <span class="homepage-icon homepage-icon-cta"></span>
+                                        
+                                   <a href="http://www.ni.com/products/"><strong>Browse all Products</strong></a>
+                                    </div>
+                                </div>
+                                <div class="col1of4 left">
+                                    <h3>Software</h3>
+                                    <ul>
+                                        <h4>Programming Environments</h4>
+                                            <li>
+                                                <a href="http://www.ni.com/labview/">NI LabVIEW</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/lwcvi/">NI LabWindows/CVI</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/mstudio/">Measurement Studio</a>
+                                            </li>
+                                    </ul>
+                                    <ul>
+                                        <h4>Application Software</h4>
+                                            <li>
+                                                <a href="http://www.ni.com/teststand/">NI TestStand</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/diadem/">NI DIAdem</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/veristand/">NI VeriStand</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/multisim/">NI Multisim</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/vision/software/vbai/">NI Vision Builder for Automated Inspection</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/labview/signalexpress/">NI SignalExpress</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/switchexecutive/">NI Switch Executive</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://sine.ni.com/nips/cds/view/p/lang/en/nid/202625">NI Requirements Gateway</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/rf/awr/">NI AWR Design Environment</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ni.com/insightcm/">NI InsightCM™ Enterprise</a>
+                                            </li>
+                                    </ul>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="grid4 left">
+                            <div class="sid-gutter-outer-l">
+                                <h2>Shop by Measurements</h2>
+                                <ul>
+                                        <li>
+                                            <a href="http://www.ni.com/pressure/">Pressure</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/strain/">Strain</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/temperature/">Temperature</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/soundandvibration/">Sound and Vibration</a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div><!--end of grid4-->
+                    </div><!--end of clearfix-->
+                </div>
+            </div>
+        </div><!--end of panel 1-->
+    <!--2 - industries panel -->
+        <div class="global-header-nav-primary-panel grid16 page-center" style="display: none;">
+            <div class="panel-midborder">
+                <div class="panel-innerborder">
+                    <div class="clearfix grid12 pnx-block-1x">
+                          <div class="grid5 clearfix left verticalline">
+                            <h2>Explore Industries</h2>
+                            <div class="col1of2 left">
+                                <ul>
+                                        <li>
+                                            <a href="http://www.ni.com/automotive/">Automotive</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/aerospace-defense/">Aerospace and Defense</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/electronics/">Electronics</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/power/">Energy</a>
+                                        </li>
+                                </ul>
+                            </div>
+                            <div class="col1of2 left">
+                                <ul>
+                                        <li>
+                                        <a href="http://www.ni.com/greenengineering/">Green Engineering</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/oilandgas/">Oil and Gas</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/automatedtest/semiconductor/">Semiconductor</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/structural-test/">Structural Test</a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid5 clearfix left sid-gutter-outer-l">
+                              <h2>Explore Applications</h2>
+                            <div class="col1of2 left">
+                                <ul>
+                                        <li>
+                                            <a href="http://www.ni.com/mcm/">Condition Monitoring</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/data_logger/">Data Logging</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/embeddedcontrol/">Embedded Control</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/hil/">Hardware-in-the-Loop Test</a>
+                                        </li>
+                                </ul>
+                            </div>
+                            <div class="col1of2 left">
+                                <ul>
+                                        <li>
+                                        <a href="http://www.ni.com/medical/">Medical</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/physics/">Physics</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/rf/applications/">RF and Communications Test</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/robotics/">Robotics</a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div><!--end of grid 12-->
+                       
+                    </div>
+                <!--Browse Support div-->
+                     <div class="grid11 sid-gutter-outer-l">
+                        <span class="homepage-icon homepage-icon-cta"></span>
+                            <a href="http://www.ni.com/case-studies/"><strong>Browse local case studies</strong></a>
+                                <span class="global-header-nav-primary-panel-pipe">|</span>
+                            <a href="http://www.ni.com/solutions/"><strong>Browse all solutions</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--end of panel 2-->
+    <!--3 - support -->
+        <div class="global-header-nav-primary-panel grid16 page-center" style="display: none;">
+            <div class="panel-midborder">
+                <div class="panel-innerborder">
+                    <div class="clearfix grid13 pnx-block-1x">
+                        <div class="grid5 clearfix left verticalline">
+                            <h2>Support</h2>
+                            <div class="col1of2 left">
+                                <ul>
+                                        <li>
+                                            <a href="http://www.ni.com/getting-started/">Get Started</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/kb/">Search KnowledgeBase </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/downloads/drivers/">Download Drivers</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.ni.com/downloads/ni-drivers/">NI Drivers</a>
+                                        </li>
+                                </ul>
+                            </div>
+                            <div class="col1of2 left">
+                                <ul>
+                                        <li>
+                                        <a href="http://www.ni.com/downloads/instrument-drivers/">Third Party Drivers</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/manuals/">Find Manuals</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://digital.ni.com/hardref.nsf/mainpage">View Product Certifications</a>
+                                        </li>
+                                        <li>
+                                        <a href="http://www.ni.com/alliance/">Alliance Partner Network</a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid3 clearfix left verticalline">
+                           <h2>Software Services</h2>
+                            <ul>
+                                    <li><a href="http://www.ni.com/services/software_benefits.htm">Software Maintenance</a></li>
+                                    <li><a href="http://www.ni.com/services/vlp.htm">Volume Licensing for Software</a></li>
+                            </ul>
+                        </div>
+                        <div class="grid3 clearfix left sid-gutter-outer-l">
+                            <h2>Hardware Services</h2>
+                                <ul>
+                                        <li><a href="http://www.ni.com/services/calibration.htm">Hardware Calibration</a></li>
+                                        <li><a href="http://www.ni.com/services/systems/assembly/">Hardware System Assurance</a></li>
+                                        <li><a href="http://www.ni.com/services/consulting.htm">System Design and Integration</a></li>
+                                </ul>
+                        </div>
+                    </div><!--end of grid 12-->
+                    <!--Browse Support div-->
+                    <div class="grid11 sid-gutter-outer-l">
+                        <span class="homepage-icon homepage-icon-cta"></span>
+                                <a href="http://www.ni.com/support/"><strong>Browse all Support resources</strong></a>
+                                <span class="global-header-nav-primary-panel-pipe">|</span>
+                                <a href="http://www.ni.com/services/"><strong>Browse all Services</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--end of panel 3-->
+    <!--4 - Community -->
+        <div class="global-header-nav-primary-panel grid16 page-center" style="display: none;">
+            <div class="panel-midborder">
+                <div class="panel-innerborder">
+                    <div class="clearfix grid13 pnx-block-1x sid-gutter-outer-l">
+                        <ul>
+                            <li><a href="http://www.ni.com/community/">Connect to the NI Community</a></li>
+                            <li><a href="http://forums.ni.com/t5/NI-Idea-Exchange/ct-p/ideas">Contribute to the Idea Exchange</a></li>
+                            <li><a href="http://www.ni.com/code/">Share and Download Code</a></li>
+                            <li><a href="https://decibel.ni.com/content/groups">Connect with User Groups</a></li>
+                            <li><a href="http://forums.ni.com/">Collaborate in the Forums</a></li>
+                        </ul>
+                    </div>
+                    <!--Browse Support div-->
+                    <div class="grid11 sid-gutter-outer-l">
+                        <span class="homepage-icon homepage-icon-cta"></span>  
+                            <a href="http://www.ni.com/community/"><strong>Browse all Community resources</strong></a> 
+                    </div>
+                 </div>
+            </div>
+        </div>
+    <!--end of panel 4-->    
+    <!--5 - Academic -->
+        <div class="global-header-nav-primary-panel grid16 page-center" style="display: none;">
+            <div class="panel-midborder">
+                <div class="panel-innerborder">
+                     <div class="clearfix grid13 pnx-block-1x sid-gutter-outer-l">
+                        <ul>
+                            <li><a href="http://us.ni.com/academic/applications">Teaching Applications</a></li>
+                            <li><a href="http://us.ni.com/academic/hardware">Academic Hardware</a></li>
+                            <li><a href="http://us.ni.com/academic/software">Academic Software and Licensing</a></li>
+                            <li><a href="http://us.ni.com/academic/training">Academic Training</a></li>
+                            <li><a href="http://us.ni.com/academic/user-solutions">Teaching and Research User Examples</a></li>
+                        </ul>
+                    </div>
+                    <!--Browse Support div-->
+                    <div class="grid11 sid-gutter-outer-l">
+                        <span class="homepage-icon homepage-icon-cta"></span>  
+                            <a href="http://us.ni.com/academic"><strong>Browse all Academic resources</strong></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--end of panel 5-->
+    <!--6 - Events -->
+        <div class="global-header-nav-primary-panel grid16 page-center" style="display: none;">
+            <div class="panel-midborder">
+                <div class="panel-innerborder">
+                    <div class="clearfix grid13 pnx-block-1x">
+                        <div class="grid3 clearfix left verticalline">
+                            <h2>Events</h2>
+                                <ul>
+                                    <li><a href="http://www.ni.com/niweek/">NIWeek: Our Global Conference</a></li>
+                                    <li><a href="http://us.ni.com/nidays">NIDays: Our Local Conferences</a></li>
+                                    <li><a href="http://us.ni.com/webcasts">Watch Live Webcasts</a></li>
+                                    <li><a href="http://www.ni.com/seminars/usa.htm">View Technical Seminars</a></li>
+                                    <li><a href="http://sine.ni.com/nievents/app/results/p/country/us/type/tradeshows">Visit NI at Tradeshows</a></li>
+                                </ul>     
+                        </div>
+                        <div class="grid3 clearfix left sid-gutter-outer-l">
+                            <h2>Training</h2>
+                                <ul>
+                                    <li><a href="http://www.ni.com/training/learning-paths/">Find Your Learning Path</a></li>
+                                    <li><a href="http://www.ni.com/training/overview/">Find a Course Near You</a></li>
+                                    <li><a href="http://www.ni.com/training/certification/">Succeed with Professional Certifications</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <!--Browse Support div-->
+                    <div class="grid11 sid-gutter-outer-l">
+                        <span class="homepage-icon homepage-icon-cta"></span>  
+                            <a href="http://www.ni.com/events/"><strong>Browse all NI Events</strong></a>  <span class="global-header-nav-primary-panel-pipe">|</span> 
+                            <a href="http://www.ni.com/training/"><strong>Browse all Training resources</strong></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--end of panel 6-->
+                </div>
+   <!-- global gateway panel --> 
+            <div class="gg-panel" style="display: none;">
+                <div class="clearfix">
+                    <div class="col1of2 left">
+                            <ul>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-AU">Australia</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="pt-BR">Brasil</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-CA">Canada (English)</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="fr-CA">Canada (Français)</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="de-DE">Deutschland</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="es-ES">España</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="fr-FR">France</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-IN">India</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="it-IT">Italia</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="hu-HU">Magyarország</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-MY">Malaysia</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="es-MX">México (Español)</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="nl-NL">Nederland</a>
+                                            </li>
+                              
+                            </ul>
+                    </div>
+                   
+                    <div class="col1of2 left">
+                            <ul>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="de-AT">Österreich</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="pl-PL">Polska</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="de-CH">Schweiz</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-SG">Singapore</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="fr-CH">Suisse</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="sv-SE">Sverige</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-GB">United Kingdom</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="en-US">United States</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="ru-RU">Российская Федерация</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="zh-CN">中国 (China)</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="ja-JP">日本 (Japan)</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="ko-KR">대한민국 (Korea)</a>
+                                            </li>
+                                            <li>
+                                                <a href="./VTOL Flying Wing - NI Case Study_files/VTOL 4.html" data-locale="zh-TW">台灣 (Taiwan)</a>
+                                            </li>
+                            </ul>
+                    </div>
+                </div>
+            <div class="gg-panel-bottom">
+                           <a href="http://www.ni.com/global-gateway/?rtrn=http%3A%2F%2Fsine.ni.com%2Fcs%2Fapp%2Fdoc%2Fp%2Fid%2Fcs-16701" class="global-gateway"> <strong>See All Countries</strong></a>
+                  
+            </div>
+            </div>
+            
+            </div><!-- end of centering wrapper -->   
+        </div>
+		  	
+	</div>
+  	
+    <div class="global-header-breadcrumb sid-page-center">
+        
+    </div>
+
+
+    <!-- PNX-HEADER END-->
+
+    <div class="pnx-content clearfix">
+
+    <!-- This is the Start of where you should be writing your HTML -->
+    <div class="grid16">
+
+    <div id="primarycontentcontainerprint">
+        <div id="pagearea">
+            <div class="column_container t-margin-med clearfix">
+                <div class="grid1212">
+                    <h1>Developing a New Breed of Industrial Inspection Drone Using the NI RIO Platform</h1>
+                    <!-- Top bar, print, social links -->
+                    
+<div id="contentarea">
+<div class="content">
+    
+<div class="pnx-media-coreblock pnx-block-1x">
+    <div class="pnx-media-asset">
+        <img src="./VTOL Flying Wing - NI Case Study_files/vtol1.jpg" border="0" width="200" draggable="false">
+    </div>
+    <div class="pnx-media-content">
+        <div class="pullquote">
+            <p>"Using LabVIEW as our software development environment gives us the ability to design, prototype and deploy software within a single development environment saving us significant time."</p>
+            <p class="name">- Ashley Bryant,
+            <a href="http://www.vtol-technologies.com/" target="_blank"> VTOL Technologies
+            </a>
+            <br>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="pnx-block-1x" style="margin-bottom: 2em;">
+    <div class="challenge-solution">
+        
+        <p>
+        <strong>The Challenge:</strong><br>Creating tight-deadline simulation and flight control for a breakthrough remotely piloted aircraft system (RPAS) design using hardware in-the-loop testing that can operate in a real-time environment and handle significant data communications including telemetry data logging and processing.
+        </p>
+        <p>
+        <strong>The Solution:</strong><br>Using the myRIO device with FPGA and real-time capabilities, LabVIEW software, the LabVIEW Control Design and Simulation Module, and the LabVIEW MathScript RT Module to achieve the high-speed data analysis necessary to control our “fly-by-wire” Vertical Take-Off and Landing (VTOL) Flying Wing.
+        </p>
+        
+        <p>
+        <strong>Author(s):</strong><br>
+        Ashley Bryant - <a href="http://www.vtol-technologies.com/" target="_blank">VTOL Technologies</a><br>
+        Arthur Henry - <a href="http://www.vtol-technologies.com/" target="_blank">VTOL Technologies</a>
+        </p>
+        <p><strong>Published:</strong> May 2015</p>
+        <p><strong>URL:</strong> <a href="http://sine.ni.com/cs/app/doc/p/id/cs-16701">http://sine.ni.com/cs/app/doc/p/id/cs-16701</a></p>
+
+    </div>
+</div>
+
+<div id="drawer" class="collapse-content">
+
+<h3><b>VTOL Technologies</b></h3>
+
+<p>VTOL Technologies is at the forefront of developing light (&lt;20 kg) low-altitude, beyond visual line of sight (BVLOS) aerial-inspection remotely piloted aircraft systems, also known as drones. We develop and provide services for the automated inspection of network-based industry assets and infrastructure including, but not limited to, electricity and gas transmission and distribution, rail networks, water utilities, offshore maritime electricity generation, agriculture, and forestry.</p>
+
+<p>As economies grow, more and more capital infrastructure is being built and, as a consequence, infrastructure needs more frequent and precise inspections with the resultant captured data compared over time. Today, customers either use manned helicopters, short-duration multirotor platforms, or foot-based personnel for many asset and infrastructure inspection tasks. The challenge for the deployment of light RPAS (or drones) is currently limited by range and endurance as well as not being able to repeat the inspection process safely, accurately, and consistently. If we could do this, we would establish trend data to deliver higher quality inspection information and reduce the overall inspection costs.</p>
+
+<p>Today’s asset inspection techniques are often expensive, associated with safety considerations, and lack the required levels of consistency that could open up opportunities for advanced data processing techniques. With the availability of cheap multirotor platforms, companies have started to use such devices operating within visual line of sight (VLOS) for low-altitude aerial inspections. Unfortunately these platforms have endurance, precision flight, and range limitations. To achieve our goal of low cost, fully automated, and repeatable inspection processes, we needed a change in RPAS or drone design and paradigm.</p>
+
+<p>We solved two key problems prior to delivering BVLOS solutions. First, we established whether there was a clear return on investment. Second, we established concepts of operations that can meet civil aviation authorities (CAA) BVLOS RPAS regulatory frameworks. Finally, VTOL Technologies patented the VTOL Flying Wing platform that can deliver up to six times the endurance of an equivalent multirotor platform (such as a quad, hex, or octocopter), as well as dramatically extending endurance when hovering into wind compared to conventional multirotor platforms or rotorcraft.</p>
+
+<div style=" text-align: center;">
+    <iframe src="https://player.vimeo.com/video/103732065?color=e96702&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/103732065">VTOL Flying Wing</a> from <a href="https://vimeo.com/thinkallowed">Think Allowed</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
+
+<h3><b>VTOL Flying Wing</b></h3>
+
+<p>We needed to incorporate three critical technologies (high-precision GNSS, miniature collision avoidance, and persistent BVLOS communications) into a new, long endurance, precision flight, flexible, and “deployable anywhere” drone or RPAS platform. This new breakthrough platform that incorporates these technologies is the VTOL Flying Wing.</p>
+
+<p align="center"><img alt="" src="./VTOL Flying Wing - NI Case Study_files/udiyyvgf6194710127967050252.jpg" width="601" height="339"></p>
+
+<p align="center"><b>Figure 1. </b><i>The VTOL Flying Wing</i></p>
+
+<p>The breakthrough concept behind our unique RPAS architecture consists of the following elements:</p>
+
+<ul>
+<li>An advanced aerofoil for high lift at low speed with low drag at high speed</li>
+
+<li>Thrust vectoring mechanisms that require minimal energy to rotate</li>
+
+<li>Extensive redundant control authority for high-precision flight</li>
+
+<li>Unique flight maneuvers such as turning without banking, rapid acceleration and deceleration, and hovering into wind</li>
+</ul>
+
+<p><b>VTOL Flying Wing Control</b></p>
+
+<p>We selected the <a href="http://www.ni.com/myrio/">myRIO</a> device as a baseline technology for our flight control system development and used <a href="http://www.ni.com/labview/">LabVIEW</a> software to develop our flight planning and flight operations ground control station tools. LabVIEW features unique rapid-prototyping capabilities and can handle large volumes of real-time telemetry and payload data coupled with an ability to tightly integrate the FPGA with other real-time hardware and software. This includes interfacing with inertial systems, laser altimeters, collision-avoidance technologies, and precision GNSS to help us achieve our goals. Currently, the VTOL Flying Wing is in the development state and has successfully performed test flights.</p>
+
+<p>Our application uses myRIO hardware with LabVIEW software and incorporates several toolkits including the LabVIEW Control Design and Simulation Module and the LabVIEW System Identification Toolkit. Furthermore, we also use NI-VISA and DLL integration capabilities to communicate with third party software and devices such as electronic measurement devices, virtual reality environments, and hardware characterisation test rigs.</p>
+
+<p>Using LabVIEW as our software development environment gives us the ability to design, prototype, and deploy software within a single development environment and save significant time. We can also quickly develop and deploy customisable, user-friendly software interfaces, and demonstrate to prospective customers with the ability to quickly upgrade based on feedback, if required.</p>
+
+<p align="center"><img alt="" src="./VTOL Flying Wing - NI Case Study_files/VTOL_Flying.PNG"></p>
+
+<p align="center"><b>Figure 2.</b><i> VTOL Flying Wing Avionics Architecture</i></p>
+
+<p>Prior to starting this project, some of our engineers had experience with LabVIEW along with CLAD certification. However, we chose to send our entire software development team to a personalised LabVIEW training programme, which brought all staff up to a standard LabVIEW programming skill level. To meet our tight programme development schedule and gain greater training flexibility, our engineers also signed up for the online training videos.</p>
+
+<p>We continue to work very closely with the NI professional services team that reviewed our combined preliminary hardware and avionics software and flight control systems architecture to provide positive design feedback. Additionally, NI technical support has been an important ongoing factor in addressing software development issues as they occur.</p>
+
+<p>The reliability and speed of the NI FPGA and real-time solution helped us develop robust flight-control system architectures with LabVIEW, which are critical for BVLOS operations. The myRIO device exceeded our expectations with its capability of running custom code with good deterministic performance (less than 1 µs loop cycles in real-time). The flight control system successfully uses the time-critical loop to ensure deterministic data acquisition and control loop with no latency or jitter on a complex controller.</p>
+
+<p>Overall, the NI solution continues to meet our objectives. Our future plans include moving to the NI System on Module (SOM), which will be smaller, lighter, and allow us to have, where appropriate, a higher level of customization without requiring changes in the software due to the seamless platform approach.</p>
+                                                        <p class="authorinfo">
+                                                            <strong>Author Information:</strong><br>
+                                                            Ashley Bryant<br>
+                                                                                <a href="http://www.vtol-technologies.com/" target="_blank">VTOL Technologies 
+                                                                                </a>
+                                                                        <br>First Floor Suite, Building L14, London Road Campus, The University of Reading<br>Reading RG1 5AQ<br>United Kingdom<br>Tel: 01183766311<br><a href="mailto:ashley.bryant@vta-technologies.com">ashley.bryant@vta-technologies.com</a><br>
+                                                                    <!-- TODO: protect this email address -->
+
+                                                        </p>
+                                                </div>
+
+                                        <!-- Show images in pdf -->
+                                            <div class="nextstep-section">
+                                                <h2 style="border-color:#ccc">
+                                                    <strong>Next Steps</strong>
+                                                </h2><p><a href="http://search.ni.com/nisearch/app/main/p/bot/no/ap/tech/lang/en/pg/1/sn/catnav:cs/q/myRIO/"><b>See Other Applications Using myRIO</b></a></p>
+
+<p><a href="http://www.ni.com/download-labview/"><b>Download LabVIEW</b></a></p>
+                                            </div>
+
+                                        <!-- Bottom bar, print, social links -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- This is the End of where you should be writing your HTML -->
+
+
+            </div>
+
+            <!-- PNX-FOOTER START-->
+            
+
+
+
+
+
+
+
+	<div class="global-footer sid-page-center noindex">		
+    <div class="page-center grid16 global-footer-section">
+        <div class="clearfix">
+                <div class="grid4 left global-footer-white-divider">
+                    <div class="pnx-media-coreblock">
+                         <div class="pnx-media-asset-right">
+                          <a href="https://decibel.ni.com/content/groups/ni-news-in-real-time/blog/2014/10/23/ni-named-one-of-the-world-s-best-multinational-workplaces-for-fourth-consecutive-year">
+                            <img src="./VTOL Flying Wing - NI Case Study_files/worlds_best.png" alt="World’s Best Multinational Workplaces 2013">
+                          </a>
+                     
+                        </div>
+                        <div class="pnx-media-content">
+                            <h4>Forward Together</h4>
+                            <p class="pnx-block-2x">NI equips engineers and scientists to meet the challenges of an increasingly complex world.</p>
+                        </div>
+                        
+                       
+            
+                    </div>
+                     <div class="clearfix">
+                            <div class="left global-footer-social-caption">Join Us</div>
+                            <div>
+                                <div>
+                                    <a href="http://www.facebook.com/NationalInstruments"><i class="global-footer-social facebook"></i></a>     
+                                    <a href="http://www.linkedin.com/company/3433?trk=tyah"><i class="global-footer-social linkedin"></i></a>     
+                                    <a href="http://twitter.com/niglobal"><i class="global-footer-social twitter"></i></a>     
+                                    <a href="http://www.ni.com/rss/"><i class="global-footer-social feeds"></i></a>     
+                                    <a href="http://www.youtube.com/nationalinstruments"><i class="global-footer-social youtube"></i></a>     
+                                </div>
+                            </div>
+                         </div>
+                </div>
+            <div class="grid12 right">
+     <div class="left col1of4 gutter-inner-r">
+       <h4>About National Instruments</h4>
+               <ul class="unstyled">
+                        <li><a href="http://www.ni.com/company/">About National Instruments</a></li>
+                        <li><a href="http://www.ni.com/company/shared-value/">Shared Value</a></li>
+                        <li><a href="http://investor.ni.com/">Investor Relations</a></li>
+                        <li><a href="http://www.ni.com/niglobal/">Worldwide Offices</a></li>
+                        <li><a href="http://www.ni.com/careers/">Careers</a></li>
+                </ul>
+               
+    
+               
+               
+     </div>
+        <div class="left col1of4 gutter-inner-r">
+       <h4>Order Information</h4>
+                <ul class="unstyled">
+                        <li><a href="http://www.ni.com/howtobuy/">Order and Payment Information</a></li>
+                        <li><a href="http://sine.ni.com/apps/utf8/nios.store?action=purchase_form">Order by Part Number</a></li>
+                        <li><a href="https://www.ni.com/status/">Review Order Status and History</a></li>
+                        <li><a href="http://www.ni.com/oem/">OEM Solutions</a></li>
+                </ul>
+        </div>
+        <div class="left col1of4 gutter-inner-r">
+       <h4>Support Services</h4>
+                <ul class="unstyled ">
+                        <li><a href="https://sine.ni.com/srm/app/getassistance">Request Support from an Engineer</a></li>
+                        <li><a href="https://sine.ni.com/srm/app/myServiceRequests">Submit a Service Request</a></li>
+                        <li><a href="http://www.ni.com/services/warranty_repair_policies.htm">View Returns, Warranty and Repair Information</a></li>
+                        <li><a href="http://partners.ni.com/partner_locator/search.aspx">Find an NI Alliance Partner</a></li>
+                </ul>
+        </div>
+        <div class="left col1of4">
+        <h4>Popular Resources</h4>
+                <ul class="unstyled">
+                        <li><a href="http://www.ni.com/support/">Software Updates</a></li>
+                        <li><a href="http://www.ni.com/downloads/">Find Product Downloads and Drivers</a></li>
+                        <li><a href="http://sine.ni.com/myproducts/app/main.xhtml?lang=en">Activate a Product</a></li>
+                        <li><a href="http://sine.ni.com/myproducts/app/main.xhtml?lang=en">Register a Product</a></li>
+                        <li><a href="http://www.ni.com/company/suppliers/">Find Supplier Information</a></li>
+                        <li><a href="http://www.ni.com/help/map.htm">Site Map</a></li>
+                </ul>
+        </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    <div class="pnx-block-2x clearfix"> </div>
+        <div class="clearfix">
+            <div class="page-center global-legal grid16 relative clearfix">
+                <div class="page-center grid12 center">
+                    
+                        <strong>(800) 531-5066</strong><span class="global-footer-pipe">|</span>    
+                    
+                   
+	
+				<a href="http://www.ni.com/legal/privacy/">Privacy</a>  <span class="global-footer-pipe">|</span>
+				<a href="http://www.ni.com/legal/termsofuse/unitedstates/us/">Terms of Use</a>  <span class="global-footer-pipe">|</span>
+				<a href="http://www.ni.com/legal/">Other Legal Info</a>  <span class="global-footer-pipe">|</span>
+			
+			© 2016 
+			National Instruments Corporation. All rights reserved.
+	
+     
+               
+                	
+                    <p class="grid12 page-center center">
+                    
+                    </p>
+                </div>
+                <div class="right">
+                    <a class="trust-image" href="http://privacy.truste.com/privacy-seal/National-Instruments-Corporation/validation?rid=bc6daa8f-7051-4eea-b7b5-fb24dcd96d95" target="_blank">
+                        <img src="./VTOL Flying Wing - NI Case Study_files/seal" alt="TRUSTe">
+                    </a>
+                </div>
+            </div>
+        </div>
+	</div>
+	
+
+            <!-- PNX-FOOTER END-->
+
+        </div>
+
+        <!-- PNX-INVISIBLE-FOOTER START-->
+        
+        
+          <!--FOR ADOBE DYNAMIC TAG MANAGER-->
+        <script type="text/javascript">_satellite.pageBottom();</script>
+        
+
+        <!-- PNX-INVISIBLE-FOOTER END-->
+
+</body></html>
